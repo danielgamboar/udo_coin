@@ -16,15 +16,16 @@ app.use(bodyParser.json())
 app.use(cors())
 // TEST
 app.get('/Wallet', (req, res) => {
+    multichain.getAddresses((err, addresses) => {
 
-    multichain.getInfo((err, info) => {
-        if(err){
-            throw err;
-        }
-        console.log(info)
-        res.send([info])
+        multichain.createMultiSig({nrequired: 2, keys: addresses}, (err, wallet) => {
+           res.send(addresses)
+        })
+        
     })
-
   })
+
+
+
   
 app.listen(process.env.PORT || 8081)

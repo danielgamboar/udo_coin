@@ -1,11 +1,9 @@
 <template>
   <div class="posts">
-    <div v-for="Wall in Wallet" :key="Wall.id">
       <p>
         <span><b>{{ Wall }}</b></span><br />
       </p>
     </div>
-  </div>
 </template>
 
 <script>
@@ -14,7 +12,7 @@ export default {
   name: 'Wallet',
   data () {
     return {
-      Wallet: []
+      Wallet: {}
     }
   },
   mounted () {
