@@ -1,0 +1,34 @@
+{
+  "name": "udonodeserver",
+  "version": "1.0.1",
+  "description": "udonodeserverAPI",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielgamboar/udo_coin.git"
+  },
+  "keywords": [
+    "udo",
+    "tesis",
+    "udo_coin",
+    "nodejs",
+    "vuejs",
+    "multichain"
+  ],
+  "author": "daniel gamboa, Raul Cordoba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielgamboar/udo_coin/issues"
+  },
+  "homepage": "https://github.com/danielgamboar/udo_coin#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  }
+}
