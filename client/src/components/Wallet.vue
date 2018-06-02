@@ -1,7 +1,7 @@
 <template>
   <div class="posts">
       <p>
-        <span><b>{{ Wall }}</b></span><br />
+        <span><b>{{ Wallet }}</b></span><br />
       </p>
     </div>
 </template>
