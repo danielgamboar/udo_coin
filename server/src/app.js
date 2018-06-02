@@ -10,7 +10,7 @@ const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
-
+console.log("testeo")
 // TEST
 app.get('/Wallet', (req, res) => {
     multichain.getAddresses((err, addresses) => {
