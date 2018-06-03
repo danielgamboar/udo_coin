@@ -1,9 +1,14 @@
 <template>
-    <router-view/>
+ <div>
+   <navigation></navigation>
+   <router-view/>
+ </div>
 </template>
 <script>
+import navigation from '@/components/navigation.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {navigation}
 }
 </script>
 <style scoped>
