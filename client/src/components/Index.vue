@@ -1,5 +1,6 @@
 <template>
-<div>
+<div class="container-fluid bg-light">
+  <br><br>
   <login></login>
 </div>
 </template>

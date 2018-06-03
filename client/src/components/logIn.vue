@@ -1,5 +1,5 @@
 <template>
-    <b-form-group class="modal-content animate" action="">
+    <b-form-group class="modal-content animate col-md-6" action="">
       <div class="container">
         <label for="uname"><b>Username</b></label>
         <b-form-input type="text" placeholder="Enter Username" name="uname" required></b-form-input>
