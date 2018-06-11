@@ -20,9 +20,10 @@ app.get('/Wallet', (req, res) => {
 
         multichain.createMultiSig({nrequired: 2, keys: addresses}, (err, wallet) => {
            res.send(addresses)
+           console.log(addresses)
         })
         
     })
   })
-
+ 
 app.listen(process.env.PORT || 8081)

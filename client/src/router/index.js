@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Wallet from '@/components/Wallet'
 import test from '@/components/test'
+import prueba from '@/components/prueba'
+// Bootstrap
 import BoostrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -26,6 +28,11 @@ export default new Router({
       path: '/test',
       name: 'test',
       component: test
+    },
+    {
+      path: '/prueba',
+      name: 'prueba',
+      component: prueba
     }
   ]
 })
