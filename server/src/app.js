@@ -10,17 +10,17 @@ const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
-console.log("testeo")
 // TEST
-app.get('/Wallet', (req, res) => {
-    multichain.getAddresses((err, addresses) => {
-
-        multichain.createMultiSig({nrequired: 2, keys: addresses}, (err, wallet) => {
-           res.send(addresses)
-           console.log(addresses)
-        })
-        
-    })
+  app.get('/Wallet', (req, res) => {
+    multichain.getAddressBalances({
+        address: '1SPhcGdXtjR5mwk5teUHNZ3yrswt8Z2P2NaSiy',
+        miconf: 0
+    }, (err,bal)=>{
+            res.send(bal)
+    })  
   })
 
+  //Requests
+  
+  
 app.listen(process.env.PORT || 8081)
