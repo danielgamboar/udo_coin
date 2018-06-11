@@ -1,16 +1,19 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+ <div class="">
+   <navigation></navigation>
+   <router-view/>
+   <foot></foot>
+ </div>
 </template>
-
 <script>
+import navigation from '@/components/navigation.vue'
+import foot from '@/components/foot.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {navigation, foot}
 }
 </script>
-
-<style>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
