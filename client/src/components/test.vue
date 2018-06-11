@@ -17,7 +17,7 @@
 </script>
 <style scoped>
 body{
-  background: #eee url(http://subtlepatterns.com/patterns/sativa.png);
+  background: #eee;
 }
 html,body{
     position: relative;
@@ -69,7 +69,8 @@ html,body{
     margin: 10px auto 30px;
     border-radius: 100%;
     border: 2px solid #aaa;
-    background-size: cover;
+    background-size: 100px 100px;
+    background:  url();
 }
 .form-box input{
     width: 100%;
