@@ -22,6 +22,11 @@ export default {
 }
 </script>
 <style scoped>
+.btn-info {
+    color: #fff;
+    background-color: #76323f;
+    border-color: #76323f;
+}
 body{
   background: #eee;
 }
