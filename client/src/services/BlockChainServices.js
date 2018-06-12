@@ -1,7 +1,7 @@
 import Api from '@/services/Api'
 
 export default {
-  fetchWallet () {
-    return Api().get('Wallet')
+  getAddresstbalance (params) {
+    return Api().post('AddressBalance', params)
   }
 }

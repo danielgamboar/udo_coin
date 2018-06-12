@@ -10,17 +10,23 @@ const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
+
 // TEST
-  app.get('/Wallet', (req, res) => {
+
+//Requests
+
+// get balance from a Address
+app.post('/AddressBalance', (req,res)=>{
+    console.log(req.body.address)
     multichain.getAddressBalances({
-        address: '1SPhcGdXtjR5mwk5teUHNZ3yrswt8Z2P2NaSiy',
+        address: req.body.address,
         miconf: 0
     }, (err,bal)=>{
+        if(err){
+            console.log(err)
+        }
             res.send(bal)
-    })  
-  })
-
-  //Requests
-  
-  
+    })
+})
+//API PORT  
 app.listen(process.env.PORT || 8081)

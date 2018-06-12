@@ -1,8 +1,9 @@
 <template>
   <div class="posts">
-      <p>
-        <span><b>{{ Wallet[0] }}</b></span><br />
-      </p>
+      <input v-model="address" placeholder="add address">
+      <p>{{address}}</p>
+      <b-button variant="success" @click="getBalance">prueba</b-button>
+      <p>{{Wallet}}</p>
     </div>
 </template>
 
@@ -12,15 +13,17 @@ export default {
   name: 'Wallet',
   data () {
     return {
-      Wallet: {}
+      Wallet: {},
+      address: ''
     }
   },
   mounted () {
-    this.getWallet()
+
   },
   methods: {
-    async getWallet () {
-      const response = await Blockchain.fetchWallet()
+    async getBalance () {
+      const address = this.address
+      const response = await Blockchain.getAddresstbalance({address})
       console.log(response)
       this.Wallet = response.data
     }
