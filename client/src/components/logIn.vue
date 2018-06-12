@@ -22,7 +22,6 @@ export default {
 }
 </script>
 <style scoped>
-/<style scoped>
 body{
   background: #eee;
 }
@@ -33,7 +32,7 @@ html,body{
 .login-container{
     position: relative;
     width: 300px;
-    margin: 0.5em auto;
+    margin: 5em auto;
     padding: 20px 40px 40px;
     text-align: center;
     background: #fff;
