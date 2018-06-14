@@ -16,17 +16,18 @@ p {
     margin-bottom: 0;
 }
 .txt{
-  font-family: 'Assistant';
+  font-family: 'Ubuntu' !important;
   font-weight: 1.5em;
-  color: #565656;
+  color: #fdb44b;
 }
 #title{
   font-family: 'Pacifico';
 }
 #pago{
-  color: #76323f;
+  color: #f96d00;
 }
 .bg-info {
-  background-color: #c09f80 !important;
+  margin-top: 5.75em;
+  background-color: #393e46 !important;
 }
 </style>

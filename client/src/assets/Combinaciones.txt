@@ -1,0 +1,606 @@
+/*Original
+*Amarillo #cda34f fondo bordes login
+*Gris #565656 letras
+*vinotinto #76323f botones, links, importantes
+
+Combinacion 3
+azul marino 00204a
+azul rey 005792
+aqua 00bbf0
+algo como naranja pastel fdb44b
+
+nav
+#navbtn{
+  font-family: 'Ubuntu';
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #00bbf0;
+    border-color: #00bbf0;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #00bbf0;
+    text-decoration: none;
+    background-color: #404b69;
+}
+#title{
+  font-family: 'Pacifico';
+}
+.pago{
+  color: #00bbf0;
+}
+.bg-info {
+  background-color: #00204a !important;
+}
+.txt{
+  font-family: 'Ubuntu';
+  color: #fdb44b;
+}
+
+login
+.container{
+  padding-top: 6em;
+}
+a{
+  color: #00bbf0;
+}
+h1{
+  text-align: center;
+}
+h2{
+  font-weight: 100;
+  font-size: 1rem;
+  text-align: center;
+}
+.txt{
+  font-family: 'Ubuntu';
+  color: #00204a;
+}
+.pago{
+  color: #00bbf0;
+  font-family: 'Pacifico';
+  text-align: center;
+}
+.btn-info {
+    color: #fff;
+    background-color: #fdb44b;
+    border-color: #fdb44b;
+}
+body{
+  background: #dbedf3;
+}
+html,body{
+    position: relative;
+    height: 100%;
+}
+.login-container{
+    position: relative;
+    width: 300px;
+    margin: 2.5em auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #fdb44b;
+}
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+}
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #fdb44b;
+}
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
+}
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #fdb44b;
+    background-size: 100px 100px;
+    background:  url();
+}
+.form-box input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #404b69;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
+}
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
+}
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
+}
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+.form-box button.login{
+    margin-top:15px;
+    padding: 10px 20px;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+foot
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.txt{
+  font-family: 'Ubuntu' !important;
+  font-weight: 1.5em;
+  color: #fdb44b;
+}
+#title{
+  font-family: 'Pacifico';
+}
+#pago{
+  color: #00bbf0;
+}
+.bg-info {
+  margin-top: 5.75em;
+  background-color: #00204a !important;
+}
+
+combinacion 4 raul
+griz oscuro 393e46
+gris mas claro 5c636e
+naranja f96d00
+blanco f2f2f2 fdb44b
+nav
+#navbtn{
+  font-family: 'Ubuntu';
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #f96d00;
+    border-color: #f96d00;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #f96d00;
+    text-decoration: none;
+    background-color: #5c636e;
+}
+#title{
+  font-family: 'Pacifico';
+}
+.pago{
+  color: #f96d00;
+}
+.bg-info {
+  background-color: #393e46 !important;
+}
+.txt{
+  font-family: 'Ubuntu';
+  color: #fdb44b;
+}
+login
+.container{
+  padding-top: 6em;
+}
+a{
+  color: #f96d00;
+}
+h1{
+  text-align: center;
+}
+h2{
+  font-weight: 100;
+  font-size: 1rem;
+  text-align: center;
+}
+.txt{
+  font-family: 'Ubuntu';
+  color: #5c636e;
+}
+.pago{
+  color: #f96d00;
+  font-family: 'Pacifico';
+  text-align: center;
+}
+.btn-info {
+    color: #fff;
+    background-color: #f96d00;
+    border-color: #f96d00;
+}
+body{
+  background: #f2f2f2;
+}
+html,body{
+    position: relative;
+    height: 100%;
+}
+.login-container{
+    position: relative;
+    width: 300px;
+    margin: 2.5em auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #5c636e;
+}
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+}
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #5c636e;
+}
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
+}
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #5c636e;
+    background-size: 100px 100px;
+    background:  url();
+}
+.form-box input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #5c636e;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
+}
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
+}
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
+}
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+.form-box button.login{
+    margin-top:15px;
+    padding: 10px 20px;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+foot
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.txt{
+  font-family: 'Ubuntu' !important;
+  font-weight: 1.5em;
+  color: #fdb44b;
+}
+#title{
+  font-family: 'Pacifico';
+}
+#pago{
+  color: #f96d00;
+}
+.bg-info {
+  margin-top: 5.75em;
+  background-color: #393e46 !important;
+}
+
+Combinacion 2
+azul oscuro 283149
+azul menos oscuro 404b69
+rosado f73859
+azul cielo dbedf3
+
+navigation
+navbtn{
+  font-family: 'Ubuntu';
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #f73859;
+    border-color: #f73859;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #b6a19e;
+    text-decoration: none;
+    background-color: #404b69;
+}
+#title{
+  font-family: 'Pacifico';
+}
+.pago{
+  color: #f73859;
+}
+.bg-info {
+  background-color: #404b69 !important;
+}
+.txt{
+  font-family: 'Ubuntu';
+  color: #b6a19e;
+}
+
+login
+.container{
+  padding-top: 6em;
+}
+a{
+  color: #f73859;
+}
+h1{
+  text-align: center;
+}
+h2{
+  font-weight: 100;
+  font-size: 1rem;
+  text-align: center;
+}
+.txt{
+  font-family: 'Ubuntu';
+  color: #283149;
+}
+.pago{
+  color: #f73859;
+  font-family: 'Pacifico';
+  text-align: center;
+}
+.btn-info {
+    color: #fff;
+    background-color: #f73859;
+    border-color: #f73859;
+}
+body{
+  background: #dbedf3;
+}
+html,body{
+    position: relative;
+    height: 100%;
+}
+.login-container{
+    position: relative;
+    width: 300px;
+    margin: 2.5em auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #404b69;
+}
+#output{
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+}
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #404b69;
+}
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
+}
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto 30px;
+    border-radius: 100%;
+    border: 2px solid #404b69;
+    background-size: 100px 100px;
+    background:  url();
+}
+.form-box input{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height:40px;
+    border: 1px solid #404b69;
+    background: #fafafa;
+    transition:0.2s ease-in-out;
+}
+.form-box input:focus{
+    outline: 0;
+    background: #eee;
+}
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
+}
+.form-box input[type="password"]{
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+}
+.form-box button.login{
+    margin-top:15px;
+    padding: 10px 20px;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+foot
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.txt{
+  font-family: 'Ubuntu' !important;
+  font-weight: 1.5em;
+  color: #b6a19e;
+}
+#title{
+  font-family: 'Pacifico';
+}
+#pago{
+  color: #f73859;
+}
+.bg-info {
+  margin-top: 5.75em;
+  background-color: #404b69 !important;
+}

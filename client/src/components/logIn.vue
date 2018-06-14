@@ -1,16 +1,19 @@
 <template>
 <div class="container">
+  <h1 class="txt">Inicie Sesion en <span class="pago">UDOCoin Payment System</span></h1>
   <div class="login-container">
     <div id="output"></div>
     <div class="avatar"></div>
     <div class="form-box">
       <form action="" method="">
-        <input name="user" type="text" placeholder="username">
-        <input type="password" placeholder="password">
-        <button class="btn btn-info btn-block login" type="submit">Login</button>
+        <input name="user" type="text" class="txt" placeholder="username">
+        <input type="password" class="txt" placeholder="password">
+        <button class="btn btn-info btn-block login txt" type="submit">Login</button>
       </form>
     </div>
   </div>
+  <h2 class="txt">No tienes una cuenta? <a class="" href="#">Unete, que esperas!</a></h2>
+  <h2 class="txt">Olvidaste tu contrasena? <a class="" href="#">Aqui te ayudamos!</a></h2>
 </div>
 </template>
 <script>
@@ -22,13 +25,36 @@ export default {
 }
 </script>
 <style scoped>
+.container{
+  padding-top: 6em;
+}
+a{
+  color: #f96d00;
+}
+h1{
+  text-align: center;
+}
+h2{
+  font-weight: 100;
+  font-size: 1rem;
+  text-align: center;
+}
+.txt{
+  font-family: 'Ubuntu';
+  color: #5c636e;
+}
+.pago{
+  color: #f96d00;
+  font-family: 'Pacifico';
+  text-align: center;
+}
 .btn-info {
     color: #fff;
-    background-color: #76323f;
-    border-color: #76323f;
+    background-color: #f96d00;
+    border-color: #f96d00;
 }
 body{
-  background: #eee;
+  background: #f2f2f2;
 }
 html,body{
     position: relative;
@@ -37,11 +63,11 @@ html,body{
 .login-container{
     position: relative;
     width: 300px;
-    margin: 5em auto;
+    margin: 2.5em auto;
     padding: 20px 40px 40px;
     text-align: center;
     background: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #5c636e;
 }
 #output{
     position: absolute;
@@ -66,7 +92,7 @@ html,body{
     -webkit-transform: rotateZ(4deg);
     -moz-transform: rotateZ(4deg);
     -ms-transform: rotateZ(4deg);
-    border: 1px solid #ccc;
+    border: 1px solid #5c636e;
 }
 .login-container::after{
     top: 5px;
@@ -79,7 +105,7 @@ html,body{
     width: 100px;height: 100px;
     margin: 10px auto 30px;
     border-radius: 100%;
-    border: 2px solid #aaa;
+    border: 2px solid #5c636e;
     background-size: 100px 100px;
     background:  url();
 }
@@ -88,7 +114,7 @@ html,body{
     padding: 10px;
     text-align: center;
     height:40px;
-    border: 1px solid #ccc;;
+    border: 1px solid #5c636e;
     background: #fafafa;
     transition:0.2s ease-in-out;
 }
