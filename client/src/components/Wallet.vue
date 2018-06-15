@@ -3,7 +3,7 @@
       <input v-model="address" placeholder="add address">
       <p>{{address}}</p>
       <b-button variant="success" @click="getBalance">prueba</b-button>
-      <p>{{Wallet}}</p>
+      <p>{{Wallet[0]}}</p>
     </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   methods: {
     async getBalance () {
       const address = this.address
-      const response = await Blockchain.getAddresstbalance({address})
+      const response = await Blockchain.getAddressbalance({address})
       console.log(response)
       this.Wallet = response.data
     }
