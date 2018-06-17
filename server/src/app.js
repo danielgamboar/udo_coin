@@ -5,8 +5,6 @@ const cors = require('cors')
 const morgan = require('morgan')
 const config= require('./config/config')
 
-//Conecting to Blockchain
-let multichain = require('multichain-node')(require('./config/BlockchainAccess').data)
 
 //Params of NodeJS Api
 const app = express()
