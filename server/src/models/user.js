@@ -12,4 +12,3 @@ var UserSchema = new Schema({
 
 var User = mongoose.model("Post", UserSchema);
 module.exports = User;
-

@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
-const config= require('./config/config')
+const config = require('./config/config')
 
 //Params of NodeJS Api
 const app = express()
@@ -14,17 +14,11 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 app.use(cors())
 
-// TEST
+// mongoose
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost:27017/Users')
-var db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error'))
-db.once('open', function(callback){
-    console.log('Connection Succeeded')
-});
-
 //routesAPI
-require('./routes')(app,db)
+require('./routes')(app)
 
 //API PORT  
 app.listen(config.port)
