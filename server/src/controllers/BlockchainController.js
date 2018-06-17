@@ -1,5 +1,5 @@
 //Conecting to Blockchain
-let multichain = require('multichain-node')(require('../config/BlockchainAccess').data)
+let multichain = require('multichain-node')(require('../config/BlockchainAccess'))
 
 module.exports={
     transaction (req, res) {
@@ -22,14 +22,16 @@ module.exports={
         })
     },
     addressBalance (req, res){
+        
         multichain.getAddressBalances({
             address: req.body.address,
             miconf: 0
         }, (err,bal)=>{
             if(err){
                 console.log(err)
-            }
-                res.send(bal)
+            }      
+            res.send(bal)
+                
         })
     }
 }

@@ -5,10 +5,12 @@ const cors = require('cors')
 const morgan = require('morgan')
 const config= require('./config/config')
 
-
 //Params of NodeJS Api
 const app = express()
 app.use(morgan('combined'))
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json())
 app.use(cors())
 

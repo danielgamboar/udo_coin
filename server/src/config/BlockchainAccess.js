@@ -1,7 +1,6 @@
-const data = {
-    port: 6462,
-    host: '127.0.0.1',
+module.exports={
+    port: 6748,
+    host: 'localhost',
     user: "multichainrpc",
-    pass: "81ihZ9VLUdHKmz4iEdMnhyDMXFYUs1pdNwkpStbZzs1K"
-};
-exports.data=data
+    pass: "BduSFdwEiRZjryLXaVJ54navNuHqkFPQ9sUZ9vBBjNZF"
+}
