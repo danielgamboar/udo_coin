@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 //Conecting to Blockchain
-let multichain = require("multichain-node")(require("../Data/BlockchainAccess").data)
+let multichain = require('multichain-node')(require('../Data/BlockchainAccess').data)
 //Params of NodeJS Api
 const app = express()
 app.use(morgan('combined'))
@@ -12,13 +12,12 @@ app.use(bodyParser.json())
 app.use(cors())
 
 // TEST
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/Users');
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error"));
-db.once("open", function(callback){
-  console.log("Connection Succeeded");
+var mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/Users')
+var db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error'))
+db.once('open', function(callback){
+    console.log('Connection Succeeded'+callback)
 });
 
 //Requests
