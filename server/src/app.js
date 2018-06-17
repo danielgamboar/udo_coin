@@ -3,9 +3,11 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
-const config= require('../config/config')
+const config= require('./config/config')
+
 //Conecting to Blockchain
-let multichain = require('multichain-node')(require('../Data/BlockchainAccess').data)
+let multichain = require('multichain-node')(require('./config/BlockchainAccess').data)
+
 //Params of NodeJS Api
 const app = express()
 app.use(morgan('combined'))
@@ -21,39 +23,8 @@ db.once('open', function(callback){
     console.log('Connection Succeeded')
 });
 
-//Requests
-//TRansaction between 2 address
-app.post('/Transaction',(req,res) => {
-    multichain.sendAssetFrom({
-        from: req.body.fromAddress,
-        to: req.body.toAddress,
-        asset: 'Udo',
-        comment: req.body.comment,
-        qty : req.body.qty
-    }, (err,txid)=> {
-        res.send(txid)
-    })
-})
-// get transactions from an Address
-app.post('/AdresssTransactions', (req,res) =>{
-    multichain.listAddressTransactions({
-        address: req.body.address,
-        skip: 0
-        }, (err,list) => {
-            res.send(list)
-        })
-    })
-// get balance from an Address
-app.post('/AddressBalance', (req,res)=>{
-    multichain.getAddressBalances({
-        address: req.body.address,
-        miconf: 0
-    }, (err,bal)=>{
-        if(err){
-            console.log(err)
-        }
-            res.send(bal)
-    })
-})
+//routesAPI
+require('./routes')(app,db)
+
 //API PORT  
 app.listen(config.port)
