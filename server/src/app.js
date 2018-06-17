@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
+const config= require('../config/config')
 //Conecting to Blockchain
 let multichain = require('multichain-node')(require('../Data/BlockchainAccess').data)
 //Params of NodeJS Api
@@ -17,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/Users')
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error'))
 db.once('open', function(callback){
-    console.log('Connection Succeeded'+callback)
+    console.log('Connection Succeeded')
 });
 
 //Requests
@@ -55,4 +56,4 @@ app.post('/AddressBalance', (req,res)=>{
     })
 })
 //API PORT  
-app.listen(process.env.PORT || 8081)
+app.listen(config.port)
