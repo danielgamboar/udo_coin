@@ -33,5 +33,5 @@ module.exports = {
             res.send(bal)
 
         })
-    }
+    },
 }

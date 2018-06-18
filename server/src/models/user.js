@@ -3,12 +3,13 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
   name: String,
-  apellido: String,
-  cedula: Number,
+  lastname: String,
+  cedula: {type: String, unique: true},
   Address: String,
-  email: String,
+  email: {type: String, unique: true},
   password: String
+  
 });
 
-var User = mongoose.model("Post", UserSchema);
+var User = mongoose.model("User", UserSchema);
 module.exports = User;
