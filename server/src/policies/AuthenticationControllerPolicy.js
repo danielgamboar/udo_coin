@@ -15,37 +15,37 @@ module.exports = {
         if (err.error) {
             switch (err.error.details[0].context.key) {
                 case 'email':
-                    res.send({
+                    res.status(400).send({
                         success: false,
                         message: 'introduzca un correo valido'
                     })
                     break
                 case 'lastname':
-                    res.send({
+                    res.status(400).send({
                         success: false,
                         message: 'los apellidos solo deben contener letras'
                     })
                     break
                 case 'name':
-                    res.send({
+                    res.status(400).send({
                         success: false,
                         message: 'los nombres solo deben contener letras'
                     })
                     break
                 case 'cedula':
-                    res.send({
+                    res.status(400).send({
                         success: false,
                         message: 'las cedulas son numericas sin caracteres especiales ni letras'
                     })
                     break
                 case 'password':
-                    res.send({
+                res.status(400).send({
                         success: false,
                         message: 'la contrase;a debe ser de 8 a 20 caracteres y solo puede contener letras y numero'
                     })
                     break
                 default:
-                    res.send({
+                    res.status(400).send({
                         success: false,
                         message: 'posee datos invalidos'
                     })

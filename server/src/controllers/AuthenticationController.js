@@ -26,7 +26,7 @@ module.exports = {
             })
             new_user.save(function (error) {
                 if (error) {
-                    res.send({
+                    res.status(400).send({
                         success: false,
                         message: 'usuario duplicado'
                     })
@@ -34,7 +34,7 @@ module.exports = {
                 } else
                 res.send({
                     success: true,
-                    message: 'user safe succesfully'
+                    message: 'user saved succesfully'
                 })
             })
         })
