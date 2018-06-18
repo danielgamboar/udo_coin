@@ -2,6 +2,13 @@
 var User = require('../models/user')
 let multichain = require('multichain-node')(require('../config/BlockchainAccess'))
 
+var mongoose= require('mongoose')
+var db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error'))
+db.once('open', function (callback) {
+    console.log('Connection Succeeded')
+})
+
 module.exports = {
 
     async register(req, res) {
@@ -23,7 +30,8 @@ module.exports = {
                         success: false,
                         message: 'usuario duplicado'
                     })
-                }
+                    
+                } else
                 res.send({
                     success: true,
                     message: 'user safe succesfully'
