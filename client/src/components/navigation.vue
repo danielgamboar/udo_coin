@@ -2,10 +2,10 @@
 <div class="container fluid">
   <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-    <b-navbar-brand id="title" href="#">UDOCoin<span class="pago"> Payment System</span></b-navbar-brand>
+    <b-navbar-brand id="title" @click="navigateTo({name : 'Index'})">UDOCoin<span class="pago"> Payment System</span></b-navbar-brand>
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav>
-        <b-nav-item  href="#"><span class="txt">Home</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'Index'})" ><span class="txt">Home</span></b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
@@ -17,7 +17,8 @@
             <em class="txt">User</em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Signout</b-dropdown-item>
+          <b-dropdown-item @click="navigateTo({name : 'register'})"> register</b-dropdown-item>
+          <b-dropdown-item @click="navigateTo({name : 'Login'})"> login</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -27,7 +28,12 @@
 </template>
 <script>
 export default {
-  name: 'navigation'
+  name: 'navigation',
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
+  }
 }
 </script>
 <style scoped>

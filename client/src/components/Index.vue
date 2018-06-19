@@ -1,14 +1,14 @@
 <template>
-<div class="container-fluid">
-  <login></login>
+<div class="container-fluid align-center">
+  <br><br><br><br><br><br>
+  <h3 class="text-centered offset-md-4">ESTO HAY QUE MODIFICARLO</h3>
+
 </div>
 </template>
 
 <script>
-import login from '@/components/logIn.vue'
 export default {
   name: 'HelloWorld',
-  components: {login},
   data () {
     return {
       msg: 'Welcome to UDOCoin Payment System'
@@ -17,6 +17,9 @@ export default {
 }
 </script>
 <style  scoped>
+.container {
+  padding-top: 6em;
+}
 p{
   font-family: 'Ubuntu';
   font-size: 400;

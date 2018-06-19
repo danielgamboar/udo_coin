@@ -5,6 +5,7 @@ import Wallet from '@/components/Wallet'
 import test from '@/components/test'
 import prueba from '@/components/prueba'
 import Register from '@/components/Register'
+import Login from '@/components/logIn'
 // Bootstrap
 import BoostrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -14,11 +15,17 @@ Vue.use(Router)
 Vue.use(BoostrapVue)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'Index',
       component: Index
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/Wallet',

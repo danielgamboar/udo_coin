@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container fluid">
   <h1 class="txt">Inicie Sesion en <span class="pago">UDOCoin Payment System</span></h1>
   <div class="login-container">
     <div id="output"></div>
@@ -21,6 +21,9 @@
 export default {
   name: 'log-in',
   data () {
+    return {
+      
+    }
   }
 }
 </script>
