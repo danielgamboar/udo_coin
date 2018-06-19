@@ -1,5 +1,5 @@
 <template>
-<div class="fluid">
+<div class="container fluid">
   <b-navbar toggleable="md" type="dark" variant="info" fixed="top">
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-navbar-brand id="title" href="#">UDOCoin<span class="pago"> Payment System</span></b-navbar-brand>

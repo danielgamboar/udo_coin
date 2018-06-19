@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Wallet from '@/components/Wallet'
 import test from '@/components/test'
 import prueba from '@/components/prueba'
+import Register from '@/components/Register'
 // Bootstrap
 import BoostrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -33,6 +34,11 @@ export default new Router({
       path: '/prueba',
       name: 'prueba',
       component: prueba
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     }
   ]
 })

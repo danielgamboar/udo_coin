@@ -4,9 +4,9 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
   name: String,
   lastname: String,
+  email: {type: String, unique: true},
   cedula: {type: String, unique: true},
   Address: String,
-  email: {type: String, unique: true},
   password: String
   
 });
