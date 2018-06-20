@@ -1,5 +1,6 @@
 //Conecting to Blockchain
-let multichain = require('multichain-node')(require('../config/BlockchainAccess'))
+const config =  require('../config/config')
+let multichain = require('multichain-node')(config.Blockchain)
 
 module.exports = {
     transaction(req, res) {
@@ -34,4 +35,7 @@ module.exports = {
 
         })
     },
+    async getnewAddress(){ 
+        return multichain.getNewAddress()
+    }
 }
