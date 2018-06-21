@@ -10,7 +10,7 @@
         <input type="txt" v-model="cedula" placeholder="cedula">
         <input v-model="email" type="txt" class="txt" placeholder="email">
         <input type="password" v-model="password" class="txt" placeholder="password">
-        <button class="btn btn-info btn-block login txt" @click="Register" type="submit">Login</button>
+        <button class="btn btn-info btn-block login txt" @click="registro" type="submit">Login</button>
       </form>
       <br>
         <div class="danger-alert" v-html="error" />
@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    async Register () {
+    async registro () {
       try {
         await AuthenticationService.register({
           name: this.name,
