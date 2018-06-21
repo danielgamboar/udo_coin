@@ -67,15 +67,16 @@ module.exports = {
                     res.status(403).send({
                         error: 'cedula no encontrada'
                     })
-                }else { 
+                }else {
                     user[0].comparePassword(req.body.password, (err,isMatch) =>{
                         if (isMatch)
                         res.send({
                             user: user[0],
                             token: singUser(JSON.parse(JSON.stringify(user[0])))
                         })
-                        else console.log('no coincidio')
-
+                        else res.status(403).send({
+                            error: 'no coincidio'
+                        })
                     })
 
                 }

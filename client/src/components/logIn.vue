@@ -26,14 +26,19 @@ export default {
     }
   },
   methods: {
-    async login(){
-     const response = await AuthServices.login({
-       password: this.password,
-       cedula: this.cedula
-     })
-     console.log(response)
+    async login () {
+      try {
+        const response = await AuthenticationService.login({
+          cedula: this.cedula,
+          password: this.password
+        })
+        console.log(response)
+      } catch (err) {
+        console.log(err.response.data)
+      }
     }
   }
+
 }
 </script>
 
@@ -75,7 +80,7 @@ html,body{
 }
 .login-container{
     position: relative;
-    width: 300px;
+    width: 280px;
     margin: 2.5em auto;
     padding: 20px 40px 40px;
     text-align: center;
