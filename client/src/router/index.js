@@ -6,6 +6,7 @@ import test from '@/components/test'
 import prueba from '@/components/prueba'
 import Register from '@/components/Register'
 import Login from '@/components/logIn'
+import dashboard from '@/components/dashboard'
 // Bootstrap
 import BoostrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -46,6 +47,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: dashboard
     }
   ]
 })

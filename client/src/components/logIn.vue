@@ -66,7 +66,7 @@ html,body{
 }
 .login-container{
     position: relative;
-    width: 300px;
+    width: 280px;
     margin: 2.5em auto;
     padding: 20px 40px 40px;
     text-align: center;
