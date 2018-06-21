@@ -25,11 +25,11 @@ var UserSchema = new Schema({
     if (!user.isModified('password')) return next()
 
     // generate a salt
-    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+    bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) =>{
         if (err) return next(err)
 
         // hash the password using our new salt
-        bcrypt.hash(user.password, salt,null ,function(err, hash) {
+        bcrypt.hash(user.password, salt,null ,(err, hash) =>{
             if (err) return next(err)
 
             // override the cleartext password with the hashed one
@@ -39,8 +39,8 @@ var UserSchema = new Schema({
     })
     })
   
-  UserSchema.methods.comparePassword = function(candidatePassword, cb) {
-    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+  UserSchema.methods.comparePassword = (candidatePassword, cb) =>{
+    bcrypt.compare(candidatePassword, this.password, (err, isMatch) =>{
         if (err) return cb(err)
         cb(null, isMatch)
     })
