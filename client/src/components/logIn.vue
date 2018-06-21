@@ -7,7 +7,8 @@
     <div class="form-box">
         <input v-model="cedula" type="text" class="txt" placeholder="cedula">
         <input v-model="password" class="txt" type="password" placeholder="password">
-        <button  @click='login' class="btn btn-info btn-block login txt" type="submit">Login</button>
+        <button  @click='login' class="btn btn-info btn-block login txt" type="submit">Login</button> <br>
+        <div class="danger-alert" v-html="error" />
     </div>
   </div>
   <h2 class="txt">No tienes una cuenta? <a class="" href="#">Unete, que esperas!</a></h2>
@@ -22,19 +23,21 @@ export default {
   data () {
     return {
       cedula: null,
-      password: null
+      password: null,
+      error: null
     }
   },
   methods: {
     async login () {
       try {
-        const response = await AuthenticationService.login({
+        const response = await AuthServices.login({
           cedula: this.cedula,
           password: this.password
         })
-        console.log(response)
+          this.error = null
       } catch (err) {
-        console.log(err.response.data)
+        this.error = err.response.data.error
+
       }
     }
   }

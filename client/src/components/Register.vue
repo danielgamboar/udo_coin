@@ -11,7 +11,7 @@
         <input type="password" v-model="password" class="txt" placeholder="password">
         <button class="btn btn-info btn-block login txt" @click="registro" type="submit">Login</button>
       <br>
-        <div class="danger-alert" v-html="error" />
+        <div class="danger-alert" v-html="message" />
         <br>
     </div>
   </div>
@@ -28,22 +28,23 @@ export default {
       cedula: null,
       email: null,
       password: null,
-      error: null
+      message: null
     }
   },
   methods: {
     async registro () {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           name: this.name,
           lastname: this.lastname,
           cedula: this.cedula,
           email: this.email,
           password: this.password
         })
-        this.error = null
+        this.message = response.data.message
+        console.log(response)
       } catch (err) {
-        this.error = err.response.data.message
+        this.message = err.response.data.message
       }
     }
   }

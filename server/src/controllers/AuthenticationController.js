@@ -53,7 +53,7 @@ module.exports = {
                     } else
                     res.send({
                         success: true,
-                        message: 'user guardado'
+                        message: 'usuario almacenado'
                     })
                 })
             }
@@ -69,13 +69,14 @@ module.exports = {
                     })
                 }else {
                     user[0].comparePassword(req.body.password, (err,isMatch) =>{
-                        if (isMatch)
+                        if (isMatch){
+                        console.log(req.body.password)
                         res.send({
                             user: user[0],
                             token: singUser(JSON.parse(JSON.stringify(user[0])))
-                        })
+                        })}
                         else res.status(403).send({
-                            error: 'no coincidio'
+                            error: 'password incorrecto'
                         })
                     })
 
