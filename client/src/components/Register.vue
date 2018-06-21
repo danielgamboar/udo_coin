@@ -43,6 +43,9 @@ export default {
         })
         this.message = response.data.message
         this.error = null
+        this.$router.push({
+          name: 'Login'
+        })
       } catch (err) {
         this.message = err.response.data.message
       }

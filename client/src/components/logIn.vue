@@ -27,6 +27,13 @@ export default {
       error: null
     }
   },
+  mounted: function () {
+    console.log('entre aqui')
+    if (this.$store.state.isUsserloggedIn)
+      this.$router.push({
+        name: 'Index'
+      })
+  },
   methods: {
     async login () {
       try {
@@ -34,9 +41,11 @@ export default {
           cedula: this.cedula,
           password: this.password
         })
-        console.log(response.data.user)
         this.$store.dispatch('setToken',response.data.token)
         this.$store.dispatch('setUser',response.data.user)
+        this.$router.push({
+          name: 'Index'
+        })
       } catch (err) {
         this.error = err.response.data.error
 

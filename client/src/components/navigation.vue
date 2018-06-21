@@ -24,11 +24,10 @@
         <!--si el usuario esta logueado-->
         <b-nav-item-dropdown v-if="$store.state.isUsserloggedIn" right>
           <template slot="button-content">
-            <em  class="txt" :v-html="$store.state.user.name"></em>
+            <em  class="txt" >{{$store.state.user.name}} {{$store.state.user.lastname}}</em>
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item @click="navigateTo({name : 'register'})"> register</b-dropdown-item>
-          <b-dropdown-item @click="navigateTo({name : 'Login'})"> login</b-dropdown-item>
+          <b-dropdown-item @click="logout()">logout</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -42,6 +41,10 @@ export default {
   methods: {
     navigateTo (route) {
       this.$router.push(route)
+    },
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
     }
   }
 }
