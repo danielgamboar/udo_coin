@@ -1,51 +1,45 @@
 <template>
-  <div class="container">
-  <h1 class="txt">Registrese en <span class="pago">UDOCoin Payment System</span></h1>
+<div class="container fluid">
+  <h1 class="txt">Inicie Sesion en <span class="pago">UDOCoin Payment System</span></h1>
   <div class="login-container">
     <div id="output"></div>
+    <div class="avatar"></div>
     <div class="form-box">
-      <form action="" method="">
-        <input type="txt" v-model="name" placeholder="nombre">
-        <input type="txt" v-model="lastname" placeholder="apellido">
-        <input type="txt" v-model="cedula" placeholder="cedula">
-        <input v-model="email" type="txt" class="txt" placeholder="email">
-        <input type="password" v-model="password" class="txt" placeholder="password">
-        <button class="btn btn-info btn-block login txt" @click="Register" type="submit">Login</button>
-      </form>
-      <br>
-        <div class="danger-alert" v-html="error" />
-        <br>
+        <input v-model="cedula" type="text" class="txt" placeholder="cedula">
+        <input v-model="password" class="txt" placeholder="password">
+        <button  @click='login' class="btn btn-info btn-block login txt" type="submit">Login</button>
     </div>
   </div>
+  <h2 class="txt">No tienes una cuenta? <a class="" href="#">Unete, que esperas!</a></h2>
+  <h2 class="txt">Olvidaste tu contrasena? <a class="" href="#">Aqui te ayudamos!</a></h2>
 </div>
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
+import blockchainService from '@/services/BlockChainServices'
+import authServices from '@/services/AuthenticationService'
 export default {
-  name: 'Register',
   data () {
     return {
-      name: null,
-      lastname: null,
+      address: '1WpAbVQR91h39B24Et3meEfYsV3DmpqPydnpqZ',
       cedula: null,
-      email: null,
-      password: null,
-      error: null
+      password: null
     }
   },
   methods: {
-    async Register () {
+    async test () {
+      const response = await blockchainService.getAddressbalance(this.address)
+      console.log(response)
+    },
+    async login () {
       try {
-        await AuthenticationService.register({
-          name: this.name,
-          lastname: this.lastname,
+        const response = await authServices.login({
           cedula: this.cedula,
-          email: this.email,
           password: this.password
         })
+        console.log(response)
       } catch (err) {
-        this.error = err.response.data.message
+        console.log(err.error)
       }
     }
   }

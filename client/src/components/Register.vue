@@ -4,14 +4,12 @@
   <div class="login-container">
     <div id="output"></div>
     <div class="form-box">
-      <form action="" method="">
         <input type="txt" v-model="name" placeholder="nombre">
         <input type="txt" v-model="lastname" placeholder="apellido">
         <input type="txt" v-model="cedula" placeholder="cedula">
-        <input v-model="email" type="txt" class="txt" placeholder="email">
+        <input v-model="email" type="txt"  placeholder="email">
         <input type="password" v-model="password" class="txt" placeholder="password">
-        <button class="btn btn-info btn-block login txt" @click="Register" type="submit">Login</button>
-      </form>
+        <button class="btn btn-info btn-block login txt" @click="registro" type="submit">Login</button>
       <br>
         <div class="danger-alert" v-html="error" />
         <br>
@@ -23,7 +21,6 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 export default {
-  name: 'Register',
   data () {
     return {
       name: null,
@@ -35,7 +32,7 @@ export default {
     }
   },
   methods: {
-    async Register () {
+    async registro () {
       try {
         await AuthenticationService.register({
           name: this.name,

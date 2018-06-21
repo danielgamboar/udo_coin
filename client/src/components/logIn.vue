@@ -5,11 +5,9 @@
     <div id="output"></div>
     <div class="avatar"></div>
     <div class="form-box">
-      <form action="" method="">
-        <input name="user" type="text" class="txt" placeholder="username">
-        <input type="password" class="txt" placeholder="password">
-        <button class="btn btn-info btn-block login txt" type="submit">Login</button>
-      </form>
+        <input v-model="cedula" type="text" class="txt" placeholder="cedula">
+        <input v-model="password" class="txt" type="password" placeholder="password">
+        <button  @click='login' class="btn btn-info btn-block login txt" type="submit">Login</button>
     </div>
   </div>
   <h2 class="txt">No tienes una cuenta? <a class="" href="#">Unete, que esperas!</a></h2>
@@ -18,11 +16,22 @@
 </template>
 <script>
 /*eslint-disable*/
+import AuthServices from '@/services/AuthenticationService'
 export default {
   name: 'log-in',
   data () {
     return {
-      
+      cedula: null,
+      password: null
+    }
+  },
+  methods: {
+    async login(){
+     const response = await AuthServices.login({
+       password: this.password,
+       cedula: this.cedula
+     })
+     console.log(response)
     }
   }
 }
