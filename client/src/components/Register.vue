@@ -42,7 +42,7 @@ export default {
           password: this.password
         })
         this.message = response.data.message
-        console.log(response)
+        this.error = null
       } catch (err) {
         this.message = err.response.data.message
       }

@@ -34,7 +34,9 @@ export default {
           cedula: this.cedula,
           password: this.password
         })
-          this.error = null
+        console.log(response.data.user)
+        this.$store.dispatch('setToken',response.data.token)
+        this.$store.dispatch('setUser',response.data.user)
       } catch (err) {
         this.error = err.response.data.error
 
