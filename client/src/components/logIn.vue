@@ -28,7 +28,6 @@ export default {
     }
   },
   mounted: function () {
-    console.log('entre aqui')
     if (this.$store.state.isUsserloggedIn)
       this.$router.push({
         name: 'Index'
