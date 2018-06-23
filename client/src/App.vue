@@ -14,6 +14,9 @@ export default {
 }
 </script>
 <style scoped>
+body{
+  font-family: 'Ubuntu' !important;
+}
 @font-face{
     font-family: 'Ubuntu';
     src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-Bold.ttf');
