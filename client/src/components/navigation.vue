@@ -64,10 +64,11 @@ export default {
     background-color: #5c636e;
 }
 #title{
-  font-family: 'Pacifico';
+  font-family: 'Ubuntu';
 }
 .pago{
   color: #f96d00;
+  font-family: 'Pacifico';
 }
 .bg-info {
   background-color: #393e46 !important;

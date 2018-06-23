@@ -3,11 +3,12 @@
   <h1 class="txt">Registrese en <span class="pago">UDOCoin Payment System</span></h1>
   <div class="login-container">
     <div id="output"></div>
+    <div class="avatar"></div>
     <div class="form-box">
-        <input type="txt" v-model="name" placeholder="nombre">
-        <input type="txt" v-model="lastname" placeholder="apellido">
-        <input type="txt" v-model="cedula" placeholder="cedula">
-        <input v-model="email" type="txt"  placeholder="email">
+        <input type="txt" class="top-input" v-model="name" placeholder="nombre">
+        <input type="txt" class="mid-input" v-model="lastname" placeholder="apellido">
+        <input type="txt" class="mid-input" v-model="cedula" placeholder="cedula">
+        <input v-model="email" class="mid-input" type="txt"  placeholder="email">
         <input type="password" v-model="password" class="txt" placeholder="password">
         <button class="btn btn-info btn-block login txt" @click="registro" type="submit">Login</button>
       <br>
@@ -54,6 +55,12 @@ export default {
 }
 </script>
 <style scoped>
+.top-input{
+  border-radius: 5px 5px 0 0;
+}
+.mid-input{
+  border-top: 0 !important;
+}
 .container {
   padding-top: 6em;
 }
