@@ -1,136 +1,94 @@
 <template>
-<div class="container">
-  <div class="login-container">
-    <div id="output"></div>
-    <div class="avatar"></div>
-    <div class="form-box">
-      <form action="" method="">
-        <input name="user" type="text" placeholder="username">
-        <input type="password" placeholder="password">
-        <button class="btn btn-info btn-block login" type="submit">Login</button>
-      </form>
-    </div>
-  </div>
+<div class="container fluid">
+  <!-- <b-navbar v-if="$store.state.isUsserloggedIn" toggleable="md" type="dark" variant="info" fixed="top">
+    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+    <b-navbar-brand id="title" @click="navigateTo({name : 'Index'})">UDOCoin<span class="pago"> Payment System</span></b-navbar-brand>
+    <b-collapse is-nav id="nav_collapse">
+      <b-navbar-nav>
+        <b-nav-item @click="navigateTo({name : 'Index'})" ><span class="txt">Home</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : '#'})"><span class="txt">About Us</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'register'})"><span class="txt">Register</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'Login'})"><span class="txt">Login</span></b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+  <b-navbar v-if="!$store.state.isUsserloggedIn" toggleable="md" type="dark" variant="info" fixed="top">
+    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+    <b-navbar-brand id="title" @click="navigateTo({name : 'Index'})">UDOCoin<span class="pago"> Payment System</span></b-navbar-brand>
+    <b-collapse is-nav id="nav_collapse">
+        <b-navbar-nav v-if="$store.state.isUsserloggedIn">
+          <b-nav-item @click="navigateTo({name : 'Index'})" ><span class="txt">Home</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : '#'})"><span class="txt">About Us</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'sendMoney'})"><span class="txt">Send Money</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'dashboard'})"><span class="txt">Your Transactions</span></b-nav-item>
+          <b-navbar-nav class="ml-auto">
+            <b-nav-form>
+              <b-form-input size="sm" class="mr-sm-2 txt" type="text" placeholder="Su saldo aparecera aqui"/>
+            </b-nav-form>
+            <b-nav-item-dropdown  right>
+              <template slot="button-content">
+                <em  class="txt" >{{$store.state.user.name}} {{$store.state.user.lastname}}</em>
+              </template>
+              <b-dropdown-item href="#">Profile</b-dropdown-item>
+          <b-dropdown-item @click="logout()">logout</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar> -->
+  <b-navbar v-if="$store.state.isUsserloggedIn" toggleable="md" type="dark" variant="info" fixed="top">
+    <b-navbar-nav>
+      <b-nav-item>estoy in</b-nav-item>
+    </b-navbar-nav>
+  </b-navbar>
+  <b-navbar v-if="!$store.state.isUsserloggedIn" toggleable="md" type="dark" variant="info" fixed="top">
+    <b-navbar-nav>
+      <b-nav-item>estoy out</b-nav-item>
+    </b-navbar-nav>
+  </b-navbar>
 </div>
+
 </template>
 <script>
+export default {
+  name: 'navigation',
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    },
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+    }
+  }
+}
 </script>
 <style scoped>
-body{
-  background: #eee;
+#navbtn{
+  font-family: 'Ubuntu';
 }
-html,body{
-    position: relative;
-    height: 100%;
-}
-.login-container{
-    position: relative;
-    width: 300px;
-    margin: 0.5em auto;
-    padding: 20px 40px 40px;
-    text-align: center;
-    background: #fff;
-    border: 1px solid #ccc;
-}
-#output{
-    position: absolute;
-    width: 300px;
-    top: -75px;
-    left: 0;
+.btn-secondary {
     color: #fff;
+    background-color: #f96d00;
+    border-color: #f96d00;
 }
-#output.alert-success{
-    background: rgb(25, 204, 25);
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #f96d00;
+    text-decoration: none;
+    background-color: #5c636e;
 }
-#output.alert-danger{
-    background: rgb(228, 105, 105);
+#title{
+  font-family: 'Ubuntu';
 }
-.login-container::before,.login-container::after{
-    content: "";
-    position: absolute;
-    width: 100%;height: 100%;
-    top: 3.5px;left: 0;
-    background: #fff;
-    z-index: -1;
-    -webkit-transform: rotateZ(4deg);
-    -moz-transform: rotateZ(4deg);
-    -ms-transform: rotateZ(4deg);
-    border: 1px solid #ccc;
+.pago{
+  color: #f96d00;
+  font-family: 'Pacifico';
 }
-.login-container::after{
-    top: 5px;
-    z-index: -2;
-    -webkit-transform: rotateZ(-2deg);
-     -moz-transform: rotateZ(-2deg);
-      -ms-transform: rotateZ(-2deg);
+.bg-info {
+  background-color: #393e46 !important;
 }
-.avatar{
-    width: 100px;height: 100px;
-    margin: 10px auto 30px;
-    border-radius: 100%;
-    border: 2px solid #aaa;
-    background-size: 100px 100px;
-    background:  url();
-}
-.form-box input{
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    height:40px;
-    border: 1px solid #ccc;;
-    background: #fafafa;
-    transition:0.2s ease-in-out;
-}
-.form-box input:focus{
-    outline: 0;
-    background: #eee;
-}
-.form-box input[type="text"]{
-    border-radius: 5px 5px 0 0;
-    text-transform: lowercase;
-}
-.form-box input[type="password"]{
-    border-radius: 0 0 5px 5px;
-    border-top: 0;
-}
-.form-box button.login{
-    margin-top:15px;
-    padding: 10px 20px;
-}
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    -ms-transform: translateY(20px);
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
+.txt{
+  font-family: 'Ubuntu';
+  color: #fdb44b;
 }
 </style>

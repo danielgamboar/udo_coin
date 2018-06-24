@@ -4,30 +4,32 @@
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-navbar-brand id="title" @click="navigateTo({name : 'Index'})">UDOCoin<span class="pago"> Payment System</span></b-navbar-brand>
     <b-collapse is-nav id="nav_collapse">
-      <b-navbar-nav>
+      <!-- Si el usuario esta logueado -->
+      <b-navbar-nav v-if="!$store.state.isUsserloggedIn">
         <b-nav-item @click="navigateTo({name : 'Index'})" ><span class="txt">Home</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : '#'})"><span class="txt">About Us</span></b-nav-item>
       </b-navbar-nav>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2 txt" type="text" placeholder="Search"/>
-          <b-button size="sm" class="my-2 my-sm-0" id="navbtn" type="submit">Search</b-button>
-        </b-nav-form>
-        <!--si el no esta logueado-->
-        <b-nav-item-dropdown v-if="!$store.state.isUsserloggedIn" right>
-          <template slot="button-content">
-            <em  class="txt">User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item @click="navigateTo({name : 'register'})"> register</b-dropdown-item>
-          <b-dropdown-item @click="navigateTo({name : 'Login'})"> login</b-dropdown-item>
-        </b-nav-item-dropdown>
+        <b-navbar-nav v-if="!$store.state.isUsserloggedIn" class="ml-auto">
+        <b-nav-item @click="navigateTo({name : 'register'})"><span class="txt">Register</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'Login'})"><span class="txt">Login</span></b-nav-item>
+      </b-navbar-nav>
         <!--si el usuario esta logueado-->
-        <b-nav-item-dropdown v-if="$store.state.isUsserloggedIn" right>
-          <template slot="button-content">
-            <em  class="txt" >{{$store.state.user.name}} {{$store.state.user.lastname}}</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item @click="logout()">logout</b-dropdown-item>
+        <b-navbar-nav v-if="$store.state.isUsserloggedIn">
+          <b-nav-item @click="navigateTo({name : 'Index'})" ><span class="txt">Home</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : '#'})"><span class="txt">About Us</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'sendMoney'})"><span class="txt">Send Money</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'dashboard'})"><span class="txt">Your Transactions</span></b-nav-item>
+        </b-navbar-nav>
+        <b-navbar-nav v-if="$store.state.isUsserloggedIn" class="ml-auto">
+          <b-nav-form>
+            <b-form-input size="sm" class="mr-sm-2 txt" type="text" placeholder="Su saldo aparecera aqui"/>
+          </b-nav-form>
+          <b-nav-item-dropdown  right>
+            <template slot="button-content">
+              <em  class="txt" >{{$store.state.user.name}} {{$store.state.user.lastname}}</em>
+            </template>
+            <b-dropdown-item href="#">Profile</b-dropdown-item>
+            <b-dropdown-item @click="navigateToLogout({name: 'Index'})">logout</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -45,6 +47,11 @@ export default {
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
+    },
+    navigateToLogout (route) {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push(route)
     }
   }
 }
