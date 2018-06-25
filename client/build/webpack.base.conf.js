@@ -75,6 +75,18 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
+    ],
+    loaders: [
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: "style-loader!css-loader"
+      },
+      {
+       test: /\.(png|jpg|ttf|eot)$/,
+       exclude: /node_modules/,
+       loader: 'url-loader?limit=10000' 
+      }
     ]
   },
   node: {

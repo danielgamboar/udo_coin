@@ -1,6 +1,5 @@
 <template>
-<div class="container-fluid align-center">
-  <br><br><br><br><br><br>
+<div class="container align-center">
   <h3 class="text-centered offset-md-4">ESTO HAY QUE MODIFICARLO</h3>
 
 </div>

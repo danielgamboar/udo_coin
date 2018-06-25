@@ -1,15 +1,16 @@
 <template>
   <div class="container">
-  <h1 class="txt">Registrese en <span class="pago">UDOCoin Payment System</span></h1>
+  <h1 class="txt shadow-orange">Registrese en <span class="pago shadow-dark">UDOCoin Payment System</span></h1>
   <div class="login-container">
     <div id="output"></div>
+    <div class="avatar"></div>
     <div class="form-box">
-        <input type="txt" v-model="name" placeholder="nombre">
-        <input type="txt" v-model="lastname" placeholder="apellido">
-        <input type="txt" v-model="cedula" placeholder="cedula">
-        <input v-model="email" type="txt"  placeholder="email">
+        <input type="txt" class="top-input" v-model="name" placeholder="nombre">
+        <input type="txt" class="mid-input" v-model="lastname" placeholder="apellido">
+        <input type="txt" class="mid-input" v-model="cedula" placeholder="cedula">
+        <input v-model="email" class="mid-input" type="txt"  placeholder="email">
         <input type="password" v-model="password" class="txt" placeholder="password">
-        <button class="btn btn-info btn-block login txt" @click="registro" type="submit">Login</button>
+        <button class="btn btn-info btn-block login txt" @click="registro" type="submit">Register</button>
       <br>
         <div class="danger-alert" v-html="message" />
         <br>
@@ -54,6 +55,18 @@ export default {
 }
 </script>
 <style scoped>
+.shadow-dark{
+  text-shadow: 1px 1px 2px #393e46;
+}
+.shadow-orange{
+  text-shadow: 1px 1px 2px #f96d00;
+}
+.top-input{
+  border-radius: 5px 5px 0 0;
+}
+.mid-input{
+  border-top: 0 !important;
+}
 .container {
   padding-top: 6em;
 }
@@ -81,6 +94,7 @@ h2 {
   color: #fff;
   background-color: #f96d00;
   border-color: #f96d00;
+  margin-left: 0;
 }
 body {
   background: #f2f2f2;

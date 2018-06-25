@@ -7,6 +7,7 @@ import prueba from '@/components/prueba'
 import Register from '@/components/Register'
 import Login from '@/components/logIn'
 import dashboard from '@/components/dashboard'
+import sendMoney from '@/components/sendMoney'
 // Bootstrap
 import BoostrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -52,6 +53,11 @@ export default new Router({
       path: '/dashboard',
       name: 'dashboard',
       component: dashboard
+    },
+    {
+      path: '/sendMoney',
+      name: 'sendMoney',
+      component: sendMoney
     }
   ]
 })

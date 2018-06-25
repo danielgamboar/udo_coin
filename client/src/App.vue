@@ -14,12 +14,22 @@ export default {
 }
 </script>
 <style scoped>
-#app {
-  font-family: 'Assistant', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body{
+  font-family: 'Ubuntu' !important;
 }
+@font-face{
+    font-family: 'Ubuntu';
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-Bold.ttf');
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-BoldItalic.ttf');
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-Italic.ttf');
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-Light.ttf');
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-LightItalic.ttf');
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-Medium.ttf');
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-MediumItalic.ttf');
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Ubuntu/Ubuntu-Regular.ttf');
+  }
+  @font-face{
+    font-family:  'Pacifico';
+    src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Pacifico/Pacifico-Regular.ttf');
+  }
 </style>

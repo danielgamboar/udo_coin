@@ -1,6 +1,6 @@
 <template>
 <div class="container fluid">
-  <h1 class="txt">Inicie Sesion en <span class="pago">UDOCoin Payment System</span></h1>
+  <h1 class="txt shadow-orange">Inicie Sesion en <span class="pago shadow-dark">UDOCoin Payment System</span></h1>
   <div class="login-container">
     <div id="output"></div>
     <div class="avatar"></div>
@@ -56,6 +56,12 @@ export default {
 </script>
 
 <style scoped>
+.shadow-dark{
+  text-shadow: 1px 1px 2px #393e46;
+}
+.shadow-orange{
+  text-shadow: 1px 1px 2px #f96d00;
+}
 .container{
   padding-top: 6em;
 }
@@ -83,6 +89,7 @@ h2{
     color: #fff;
     background-color: #f96d00;
     border-color: #f96d00;
+    margin-left: 0;
 }
 body{
   background: #f2f2f2;

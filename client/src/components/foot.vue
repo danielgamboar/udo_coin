@@ -21,10 +21,11 @@ p {
   color: #fdb44b;
 }
 #title{
-  font-family: 'Pacifico';
+  font-family: 'Ubuntu';
 }
 #pago{
   color: #f96d00;
+  font-family: 'Pacifico'
 }
 .bg-info {
   margin-top: 5.75em;
