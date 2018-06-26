@@ -5,31 +5,55 @@
                 class="txtWhite border"
                 header-bg-variant="primary">
                 <!-- aqui se puede agregar el for para las transacciones -->
-            <b-card class="txtBlack border">
-                <p class="grayBackground  txtWhite size"><b>Transaction #1</b></p>
-                <b-row>
-                    <b-col class=" ">
-                        id transaction
-                    </b-col>
-                    <b-col class=" ">
-                        concept
-                    </b-col>
-                </b-row>
-                <b-row>
-                    <b-col class="">
-                        amount
-                    </b-col>
-                    <b-col class="">
-                        from/to who
-                    </b-col>
-                </b-row>
-            </b-card>
+            <div v-for="transaction in transactions" :key="transaction.txid" v-if="transaction.balance.assets.length > 0">
+                <b-card class="txtBlack border">
+                    <p class="grayBackground  txtWhite size"><b>Txid: {{transaction.txid}}</b></p>
+                    <b-row>
+                        <b-col class=" ">
+                            concept: {{transaction.comment}}
+                        </b-col>
+                    </b-row>
+                    <b-row>
+                        <b-col class="">
+                            amount: {{transaction.balance.assets[0].qty}}
+                        </b-col>
+                        <b-col class="">
+                            from/to who: {{transaction.to}}
+                        </b-col>
+                    </b-row>
+                </b-card>
+            </div>
         </b-card>
     </b-card-group>
 </b-container>
 </template>
 <script>
+import Blockchain from '@/services/BlockChainServices'
 export default {
+  name: 'dashboard',
+  data () {
+    return {
+      transactions: null
+    }
+  },
+  mounted () {
+    this.listTransactions()
+  },
+  methods: {
+    async listTransactions () {
+      if (this.$store.state.isUsserloggedIn) {
+        const response = await Blockchain.getAddresstransactions({
+          address: this.$store.state.user.Address
+        })
+        this.transactions = response.data
+        console.log(this.transactions)
+      } else {
+        this.$router.push({
+          name: 'Login'
+        })
+      }
+    }
+  }
 }
 </script>
 <style scoped>

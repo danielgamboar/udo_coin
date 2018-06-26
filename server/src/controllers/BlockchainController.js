@@ -4,14 +4,20 @@ let multichain = require('multichain-node')(config.Blockchain)
 
 module.exports = {
     transaction(req, res) {
+        console.log(req.body)
         multichain.sendAssetFrom({
             from: req.body.fromAddress,
             to: req.body.toAddress,
             asset: 'Udo',
             comment: req.body.comment,
-            qty: req.body.qty
+            qty: req.body.qty,
+            'comment-to': req.body.fromwho
         }, (err, txid) => {
-            res.send(txid)
+            if(err){
+                res.send(err)
+            }else {
+                res.send(txid)
+            }
         })
     },
     addresTransactions(req, res) {
@@ -19,6 +25,7 @@ module.exports = {
             address: req.body.address,
             skip: 0
         }, (err, list) => {
+            console.log(list)
             res.send(list)
         })
     },
