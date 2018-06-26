@@ -8,6 +8,7 @@ import Register from '@/components/Register'
 import Login from '@/components/logIn'
 import dashboard from '@/components/dashboard'
 import sendMoney from '@/components/sendMoney'
+import addContact from '@/components/addContact'
 // Bootstrap
 import BoostrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -58,6 +59,11 @@ export default new Router({
       path: '/sendMoney',
       name: 'sendMoney',
       component: sendMoney
+    },
+    {
+      path: '/addContact',
+      name: 'addContact',
+      component: addContact
     }
   ]
 })

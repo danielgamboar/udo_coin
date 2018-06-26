@@ -45,7 +45,7 @@
                             Contacto 1
                         </p>
                     </b-list-group-item>
-                    <b-list-grou>
+                    <b-list-group>
                         <b-list-group-item>
                             <b-form inline>
                                 <label class="" for="concepto"></label>
@@ -55,7 +55,7 @@
                                 <b-button class="marginleft" type="submit" size="sm" variant="success">Send</b-button>
                             </b-form>
                         </b-list-group-item>
-                    </b-list-grou>
+                    </b-list-group>
                 </b-list-group>
             </b-card>
         </b-card-group>
