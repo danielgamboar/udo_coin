@@ -5,10 +5,13 @@
                 class="txtWhite border"
                 header-bg-variant="primary">
                 <!-- aqui se puede agregar el for para las transacciones -->
-            <div v-for="transaction in transactions" :key="transaction.txid" v-if="transaction.balance.assets.length > 0">
+            <div v-for="(transaction,index) in transactions" :key="index" v-if="transaction.balance.assets.length > 0">
                 <b-card class="txtBlack border">
-                    <p class="grayBackground  txtWhite size"><b>Txid: {{transaction.txid}}</b></p>
+                    <p class="grayBackground  txtWhite size">Transaccion {{index}}</p>
                     <b-row>
+                        <b-col class=" ">
+                            txid: {{transaction.txid}}
+                        </b-col>
                         <b-col class=" ">
                             concept: {{transaction.comment}}
                         </b-col>
@@ -45,8 +48,7 @@ export default {
         const response = await Blockchain.getAddresstransactions({
           address: this.$store.state.user.Address
         })
-        this.transactions = response.data
-        console.log(this.transactions)
+        this.transactions = response.data.slice().reverse()
       } else {
         this.$router.push({
           name: 'Login'

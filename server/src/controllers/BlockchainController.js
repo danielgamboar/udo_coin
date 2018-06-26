@@ -25,8 +25,11 @@ module.exports = {
             address: req.body.address,
             skip: 0
         }, (err, list) => {
-            console.log(list)
-            res.send(list)
+            if(!err){
+              res.send(list)
+            } else {
+                res.send(err)
+            }
         })
     },
     addressBalance(req, res) {
