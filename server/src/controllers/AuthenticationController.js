@@ -31,8 +31,8 @@ module.exports = {
                     error: 'usuario duplicado'
                 })
             } else {
+                try{
                 const address = await blockchainController.getnewAddress()
-                console.log(address)
                 var new_user = new User({
                     name: req.body.name,
                     lastname: req.body.lastname,
@@ -56,12 +56,16 @@ module.exports = {
                         message: 'usuario almacenado'
                     })
                 })
+                } catch (err){
+                    console.log(err)
+                }
+                
             }
     },
     async login(req, res) {
         var db=req.db
         try{
-            User.find({cedula : req.body.cedula},'password Address name lastname', (err,user) => {
+            User.find({cedula : req.body.cedula},'password Address name lastname cedula', (err,user) => {
                 if (!user.length)
                 {
                     res.status(403).send({
@@ -70,7 +74,6 @@ module.exports = {
                 }else {
                     user[0].comparePassword(req.body.password, (err,isMatch) =>{
                         if (isMatch){
-                        console.log(req.body.password)
                         res.send({
                             user: user[0],
                             token: singUser(JSON.parse(JSON.stringify(user[0])))
@@ -90,5 +93,9 @@ module.exports = {
         }
         
 
+    },
+    async existUser( cedula ) {
+        const user = await User.find({cedula: cedula},'cedula',(user) => user)
+          return user.length !== 0
     }
 }

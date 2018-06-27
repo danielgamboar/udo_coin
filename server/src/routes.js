@@ -1,7 +1,8 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const blockchainController = require('./controllers/BlockchainController')
 const AuthenticationControllerPolicy= require('./policies/AuthenticationControllerPolicy')
-
+const ContactControllerPolicy= require('./policies/ContactControllerPolicy')
+const ContactController = require('./controllers/contactController')
 module.exports = (app) => {
     //AUTH
     app.post('/register', AuthenticationControllerPolicy.Register ,AuthenticationController.register)
@@ -14,4 +15,8 @@ module.exports = (app) => {
 
     // get balance from an Address
     app.post('/AddressBalance', blockchainController.addressBalance)
+
+    //Contacts
+    app.post('/regContact',ContactControllerPolicy.Register, ContactController.register)
+    app.post('/listContacts',ContactController.list)
 }

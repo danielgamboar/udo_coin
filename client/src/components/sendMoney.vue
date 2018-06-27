@@ -2,39 +2,6 @@
     <b-container>
         <b-card-group deck>
             <!-- Lista de contactos -->
-            <b-card header="<b>Lista de contactos.</b>"
-                    border-variant="dark"
-                    header-bg-variant="primary">
-                <b-list-group
-                    border-variant="dark">
-                    <b-list-group-item>
-                        <p class="txt">
-                            Contacto 1
-                        </p>
-                        <b-button-group size="sm">
-                            <b-button variant="primary" class="text">
-                                Seleccionar
-                            </b-button>
-                            <b-button variant="danger" class="text">
-                                Eliminar
-                            </b-button>
-                        </b-button-group>
-                    </b-list-group-item>
-                    <b-list-group-item>
-                        <p class="txt">
-                            Contacto 2
-                        </p>
-                    </b-list-group-item>
-                    <b-list-group-item>
-                        <p class="txt">
-                            Contacto 3
-                        </p>
-                    </b-list-group-item>
-                </b-list-group>
-                <p class="card-text mt-1 txt">
-                    Algun mensaje que queramos colocar. Lo podemos borrar.
-                </p>
-            </b-card>
             <!-- Formulario de envio -->
             <b-card header="<b>Informacion para envio de UDOCoin.</b>"
                     border-variant="dark"
