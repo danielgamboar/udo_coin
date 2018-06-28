@@ -6,25 +6,35 @@ module.exports = {
     async transaction(req, res) {
         var db= req.db
         const user = await User.find({cedula: req.body.cedula},'cedula Address name lastname',(user) => user)
-        const name= user[0].name + ' '+user[0].lastname
-        console.log(req.body)
-        multichain.sendAssetFrom({
-            from: req.body.from,
-            to: user[0].Address,
-            asset: 'Udo',
-            comment: req.body.comment,
-            qty: parseFloat(req.body.qty),
-            'comment-to': name
-        }, (err, txid) => {
-            if(err){
-                res.send(err)
-            }else {
-                res.send({
-                    code: 1,
-                    message: txid
-                })
-            }
-        })
+        if(user.length <= 0){
+            res.status(400).send({
+                code: -2,
+                message: 'cedula no existe o fue eliminada'
+            })
+        } else {
+            const name= user[0].name + ' '+user[0].lastname
+            console.log(req.body)
+            multichain.sendAssetFrom({
+                from: req.body.from,
+                to: user[0].Address,
+                asset: 'Udo',
+                comment: req.body.comment,
+                qty: parseFloat(req.body.qty),
+                'comment-to': name
+            }, (err, txid) => {
+                if(err){
+                    res.status(500).send({
+                        code: -1,
+                        message: 'ocurrio un error'
+                    })
+                }else {
+                    res.send({
+                        code: 1,
+                        message: txid
+                    })
+                }
+            })
+        }
     },
     addresTransactions(req, res) {
         multichain.listAddressTransactions({

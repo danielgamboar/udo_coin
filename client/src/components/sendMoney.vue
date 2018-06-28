@@ -1,5 +1,6 @@
 <template>
     <b-container>
+        <p>{{message}}</p>
         <b-card-group deck>
             <!-- Lista de contactos -->
             <!-- Formulario de envio -->
@@ -29,7 +30,8 @@ export default {
     return {
       qty: null,
       comment: null,
-      cedula: this.$route.params.cedula
+      cedula: this.$route.params.cedula,
+      message: null
     }
   },
   methods: {
@@ -42,12 +44,13 @@ export default {
           comment: this.comment
         })
         if (response.data.code > 0) {
-          console.log(response.data)
+          this.message = 'transferencia exitosa txid: ' + response.data.message
           this.$root.$emit('paymentSent', this.qty)
         } else {
           console.log(response.data)
         }
       } catch (err) {
+        this.message = err.response.data.message
       }
     }
   }
