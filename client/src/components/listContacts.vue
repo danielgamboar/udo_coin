@@ -4,13 +4,13 @@
                     border-variant="dark"
                     header-bg-variant="primary">
                 <b-list-group
-                    border-variant="dark">
+                    border-variant="dark" v-for="contact in listcontacts" :key="contact._id">
                     <b-list-group-item>
                         <p class="txt">
-                            Contacto 1
+                            cedula: {{contact.cedulaContact}} alias: {{contact.alias}}
                         </p>
                         <b-button-group size="sm">
-                            <b-button variant="primary" class="text">
+                            <b-button v-bind:to="{name: 'sendMoney', params: { cedula: contact.cedulaContact }}"  variant="primary" class="text">
                                 Seleccionar
                             </b-button>
                             <b-button variant="danger" class="text">
@@ -34,7 +34,7 @@ export default {
       listcontacts: null
     }
   },
-  mounted () {
+  mounted: function () {
     this.listContacts()
   },
   methods: {
@@ -43,7 +43,7 @@ export default {
         const response = await contactService.listContacts({
           cedulaUser: this.$store.state.user.cedula
         })
-        console.log(response)
+        this.listcontacts = response.data
       } catch (err) {
         console.log(err.error)
       }

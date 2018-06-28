@@ -94,8 +94,12 @@ module.exports = {
         
 
     },
-    async existUser( cedula ) {
+    async existUser ( cedula ) {
         const user = await User.find({cedula: cedula},'cedula',(user) => user)
           return user.length !== 0
+    },
+    async findUser (cedula) {
+        const user = await User.find({cedula: cedula},'cedula Address name lastname',(user) => user)
+          return user
     }
 }

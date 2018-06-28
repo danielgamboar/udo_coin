@@ -57,7 +57,7 @@ export default new Router({
       component: dashboard
     },
     {
-      path: '/sendMoney',
+      path: '/sendMoney/:cedula?',
       name: 'sendMoney',
       component: sendMoney
     },

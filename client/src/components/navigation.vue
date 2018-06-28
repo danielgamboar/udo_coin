@@ -23,24 +23,47 @@
         </b-navbar-nav>
         <b-navbar-nav v-if="$store.state.isUsserloggedIn" class="ml-auto">
           <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-2 txt" type="text" placeholder="Su saldo aparecera aqui"/>
+             <b-badge> {{transfer}} UDOcoin</b-badge>
           </b-nav-form>
           <b-nav-item-dropdown  right>
             <template slot="button-content">
               <em  class="txt" >{{$store.state.user.name}} {{$store.state.user.lastname}}</em>
             </template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item @click="navigateToLogout({name: 'Index'})">logout</b-dropdown-item>
+            <b-dropdown-item @click="logout">logout</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </div>
-
 </template>
 <script>
+import BlockchainController from '@/services/BlockChainServices'
 export default {
   name: 'navigation',
+  data () {
+    return {
+      transfer: null
+    }
+  },
+  mounted () {
+    this.$root.$on('paymentSent', data => {
+      this.transfer -= data
+    })
+  },
+  asyncComputed: {
+    balance: async function () {
+      try {
+        const response = await BlockchainController.getAddressbalance({
+          address: this.$store.state.user.Address
+        })
+        this.transfer = response.data[0].qty
+        return response.data[0].qty
+      } catch (err) {
+        return 0
+      }
+    }
+  },
   methods: {
     navigateTo (route) {
       this.$router.push(route)
@@ -48,11 +71,6 @@ export default {
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
-    },
-    navigateToLogout (route) {
-      this.$store.dispatch('setToken', null)
-      this.$store.dispatch('setUser', null)
-      this.$router.push(route)
     }
   }
 }

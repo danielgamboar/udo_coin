@@ -63,6 +63,7 @@ export default {
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
+    width: 100%;
 }
 .grayBackground{
     background-color: #5c636e;

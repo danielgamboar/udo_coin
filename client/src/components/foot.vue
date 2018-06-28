@@ -1,5 +1,5 @@
 <template>
-        <div class="bg-info  text-center aling-bottom-text">
+        <div class="bg-info  text-center aling-bottom-text" id="footer">
             <p class="txt"><b> Universidad de Oriente </b></p>
             <p id="title" class="text-white">UDOCoin <span id="pago">Payment System</span></p>
             <p class="txt">Daniel Rojas y Raul Cordoba-2018</p>

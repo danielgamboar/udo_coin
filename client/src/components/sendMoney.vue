@@ -7,20 +7,14 @@
                     border-variant="dark"
                     header-bg-variant="primary">
                 <b-list-group>
-                    <b-list-group-item>
-                        <p class="txt">
-                            Contacto 1
-                        </p>
-                    </b-list-group-item>
                     <b-list-group>
                         <b-list-group-item>
-                            <b-form inline>
-                                <label class="" for="concepto"></label>
-                                <b-input class="txt" id="concepto" placeholder="Concepto" />
+                                <b-input class="txt" v-model="cedula" placeholder="cedula"></b-input>
                                 <label class="" for="monto"></label>
-                                <b-input id="monto" class="txt" placeholder="00.00" />
-                                <b-button class="marginleft" type="submit" size="sm" variant="success">Send</b-button>
-                            </b-form>
+                                <b-input v-model="comment" id="concepto" placeholder="Concepto" />
+                                <label class="" for="monto"></label>
+                                <b-input id="monto" v-model="qty" class="txt" placeholder="00.00" />
+                                <b-button class="marginleft" @click="sendTransaction" variant="success">Send</b-button>
                         </b-list-group-item>
                     </b-list-group>
                 </b-list-group>
@@ -29,7 +23,34 @@
     </b-container>
 </template>
 <script>
+import BlockChaincontroller from '@/services/BlockChainServices'
 export default {
+  data () {
+    return {
+      qty: null,
+      comment: null,
+      cedula: this.$route.params.cedula
+    }
+  },
+  methods: {
+    async sendTransaction () {
+      try {
+        const response = await BlockChaincontroller.Transaction({
+          from: this.$store.state.user.Address,
+          cedula: this.cedula,
+          qty: this.qty,
+          comment: this.comment
+        })
+        if (response.data.code > 0) {
+          console.log(response.data)
+          this.$root.$emit('paymentSent', this.qty)
+        } else {
+          console.log(response.data)
+        }
+      } catch (err) {
+      }
+    }
+  }
 }
 </script>
 <style>

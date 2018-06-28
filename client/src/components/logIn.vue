@@ -35,6 +35,7 @@ export default {
   },
   methods: {
     async login () {
+      this.error= "i was pushed"
       try {
         const response = await AuthServices.login({
           cedula: this.cedula,

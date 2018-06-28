@@ -1,22 +1,28 @@
 //Conecting to Blockchain
 const config =  require('../config/config')
 let multichain = require('multichain-node')(config.Blockchain)
-
+var User = require('../models/user')
 module.exports = {
-    transaction(req, res) {
+    async transaction(req, res) {
+        var db= req.db
+        const user = await User.find({cedula: req.body.cedula},'cedula Address name lastname',(user) => user)
+        const name= user[0].name + ' '+user[0].lastname
         console.log(req.body)
         multichain.sendAssetFrom({
-            from: req.body.fromAddress,
-            to: req.body.toAddress,
+            from: req.body.from,
+            to: user[0].Address,
             asset: 'Udo',
             comment: req.body.comment,
-            qty: req.body.qty,
-            'comment-to': req.body.fromwho
+            qty: parseFloat(req.body.qty),
+            'comment-to': name
         }, (err, txid) => {
             if(err){
                 res.send(err)
             }else {
-                res.send(txid)
+                res.send({
+                    code: 1,
+                    message: txid
+                })
             }
         })
     },
@@ -33,7 +39,6 @@ module.exports = {
         })
     },
     addressBalance(req, res) {
-
         multichain.getAddressBalances({
             address: req.body.address,
             miconf: 0

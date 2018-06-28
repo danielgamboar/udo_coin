@@ -9,7 +9,9 @@ import vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
+import AsyncComputed from 'vue-async-computed'
 
+Vue.use(AsyncComputed)
 Vue.use(vuetify)
 
 Vue.config.productionTip = false
