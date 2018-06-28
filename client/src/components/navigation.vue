@@ -20,6 +20,7 @@
           <b-nav-item @click="navigateTo({name : 'sendMoney'})"><span class="txt">Send Money</span></b-nav-item>
           <b-nav-item @click="navigateTo({name : 'dashboard'})"><span class="txt">Your Transactions</span></b-nav-item>
           <b-nav-item @click="navigateTo({name : 'listContacts'})"><span class="txt">contacts</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'addContact'})"><span class="txt">add contact</span></b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav v-if="$store.state.isUsserloggedIn" class="ml-auto">
           <b-nav-form>

@@ -20,4 +20,5 @@ module.exports = (app) => {
     //Contacts
     app.post('/regContact',ContactControllerPolicy.Register, ContactController.register)
     app.post('/listContacts',ContactController.list)
+    app.delete('/contacts/:id',ContactController.delete)
 }

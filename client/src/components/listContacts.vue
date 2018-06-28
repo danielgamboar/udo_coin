@@ -13,7 +13,7 @@
                             <b-button v-bind:to="{name: 'sendMoney', params: { cedula: contact.cedulaContact }}"  variant="primary" class="text">
                                 Seleccionar
                             </b-button>
-                            <b-button variant="danger" class="text">
+                            <b-button @click="deleteContact(contact._id)" variant="danger" class="text">
                                 Eliminar
                             </b-button>
                         </b-button-group>
@@ -47,6 +47,10 @@ export default {
       } catch (err) {
         console.log(err.error)
       }
+    },
+    async deleteContact (id) {
+      await contactService.delete(id)
+      this.listContacts()
     }
   }
 

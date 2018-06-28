@@ -6,5 +6,8 @@ export default {
   },
   listContacts (params) {
     return Api().post('listContacts', params)
+  },
+  delete (id) {
+    return Api().delete('contacts/' + id)
   }
 }

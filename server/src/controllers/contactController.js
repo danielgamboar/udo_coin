@@ -68,5 +68,20 @@ module.exports = {
                 message: 'error buscando contactos'
             })
         }
+    },
+    async delete (req, res) {
+        const db= req.db
+        Contact.remove({
+            _id: req.params.id
+        }, (err,contact) => {
+            if (err) {
+                res.status(400).send(err)
+            } else {
+              res.send({
+                  message: 'completado'
+              })
+            }
+
+        })
     }
 }
