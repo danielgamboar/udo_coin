@@ -33,6 +33,7 @@ module.exports = {
             } else {
                 try{
                 const address = await blockchainController.getnewAddress()
+                blockchainController.grantPremissions(address)
                 var new_user = new User({
                     name: req.body.name,
                     lastname: req.body.lastname,

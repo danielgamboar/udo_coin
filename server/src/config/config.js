@@ -1,10 +1,10 @@
 module.exports={
     port: process.env.PORT || 8081,
     Blockchain: {
-        port: 6462,
+        port: 2898,
         host: 'localhost',
         user: "multichainrpc",
-        pass: "81ihZ9VLUdHKmz4iEdMnhyDMXFYUs1pdNwkpStbZzs1K"
+        pass: "B6vU3V1kGL1UvdjLHvDNnBDZ2qWHvgQeXNy6ohFZHfz1"
 
     },
     authentication: {

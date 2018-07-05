@@ -62,5 +62,11 @@ module.exports = {
     },
     async getnewAddress(){ 
         return multichain.getNewAddress()
+    },
+    grantPremissions (address) {
+            multichain.grant({
+                addresses: address,
+                permissions: "send,receive"
+            })
     }
 }
