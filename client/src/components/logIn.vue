@@ -63,9 +63,6 @@ export default {
 .shadow-orange{
   text-shadow: 1px 1px 2px #f96d00;
 }
-.container{
-  padding-top: 6em;
-}
 a{
   color: #f96d00;
 }

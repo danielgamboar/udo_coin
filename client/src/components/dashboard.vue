@@ -1,33 +1,28 @@
 <template>
 <b-container>
-    <b-card-group deck>
-        <b-card header="<b>Transaction List.</b>"
-                class="txtWhite border"
-                header-bg-variant="primary">
-                <!-- aqui se puede agregar el for para las transacciones -->
-            <div v-for="(transaction,index) in transactions" :key="index" v-if="transaction.balance.assets.length > 0">
-                <b-card class="txtBlack border">
-                    <p class="grayBackground  txtWhite size">Transaccion {{index}}</p>
-                    <b-row>
-                        <b-col class=" ">
-                            txid: {{transaction.txid}}
-                        </b-col>
-                        <b-col class=" ">
-                            concept: {{transaction.comment}}
-                        </b-col>
-                    </b-row>
-                    <b-row>
-                        <b-col class="">
-                            amount: {{transaction.balance.assets[0].qty}}
-                        </b-col>
-                        <b-col class="">
-                            from/to who: {{transaction.to}}
-                        </b-col>
-                    </b-row>
-                </b-card>
-            </div>
-        </b-card>
-    </b-card-group>
+    <div class="text-center">
+        <h1>TRANSACCIONES</h1>
+    </div>
+    <div class="container">
+            <table class="table table-striped table-sm">
+                <thead class="thead-dark">
+                    <th scope="col"><b>#</b></th>
+                    <th scope="col" class="text-center">txid</th>
+                    <th scope="col">comentario</th>
+                    <th scope="col">destinatario/receptor</th>
+                    <th scope="col">cantidad</th>
+                </thead>
+                <tbody>
+                        <tr v-for="(transaction,index) in transactions" :key="index" v-if="transaction.balance.assets.length > 0">
+                            <th scope="row">{{index+1}}</th>
+                            <th >just</th>
+                            <th >{{transaction.comment}}</th>
+                            <th >{{transaction.to}}</th>
+                            <th >{{transaction.balance.assets[0].qty}}</th>
+                        </tr>
+                </tbody>
+            </table>
+    </div>
 </b-container>
 </template>
 <script>
@@ -69,7 +64,6 @@ export default {
     background-color: #5c636e;
 }
 .container{
-    padding-top: 6em;
     text-align: center;
 }
 .border{
@@ -100,5 +94,8 @@ export default {
 h4{
   font-family: 'Ubuntu';
   color: #5c636e;
+}
+th{
+  color:#f96d00;
 }
 </style>
