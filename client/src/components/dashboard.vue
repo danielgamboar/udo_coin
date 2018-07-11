@@ -1,27 +1,22 @@
 <template>
-<b-container>
+<b-container class="tab">
     <div class="text-center">
         <h1>TRANSACCIONES</h1>
     </div>
-    <div class="container">
-            <table class="table table-striped table-sm">
-                <thead class="thead-dark">
-                    <th scope="col"><b>#</b></th>
-                    <th scope="col" class="text-center">txid</th>
-                    <th scope="col">comentario</th>
-                    <th scope="col">destinatario/receptor</th>
-                    <th scope="col">cantidad</th>
-                </thead>
-                <tbody>
-                        <tr v-for="(transaction,index) in transactions" :key="index" v-if="transaction.balance.assets.length > 0">
-                            <th scope="row">{{index+1}}</th>
-                            <th >just</th>
-                            <th >{{transaction.comment}}</th>
-                            <th >{{transaction.to}}</th>
-                            <th >{{transaction.balance.assets[0].qty}}</th>
-                        </tr>
-                </tbody>
-            </table>
+    <div>
+        <div class="card border-warning mb-3" v-for="(transaction,index) in transactions" :key="index" v-if="transaction.balance.assets.length > 0">
+            <div class="card-header bg-dark text-white fluid">
+               <h5 class="card-title border-warning">Transaccion #{{index+1}}</h5>
+            </div>
+            <div class="card-body cardBody border-warning text-left">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">txid: <b> {{transaction.txid}}</b></li>
+                    <li class="list-group-item">comentario: <b>{{transaction.comment}}</b></li>
+                    <li class="list-group-item">de/a: <b>{{transaction.to}}</b></li>
+                    <li class="list-group-item">monto: <b>{{transaction.balance.assets[0].qty}}</b></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </b-container>
 </template>
@@ -95,7 +90,10 @@ h4{
   font-family: 'Ubuntu';
   color: #5c636e;
 }
-th{
+.cardBody{
   color:#f96d00;
+}
+.tab{
+    width: 100;
 }
 </style>
