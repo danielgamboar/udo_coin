@@ -7,7 +7,7 @@
       <!-- Si el usuario esta logueado -->
       <b-navbar-nav v-if="!$store.state.isUsserloggedIn">
         <b-nav-item @click="navigateTo({name : 'Index'})" ><span class="txt">Home</span></b-nav-item>
-        <b-nav-item @click="navigateTo({name : '#'})"><span class="txt">About Us</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'aboutUs'})"><span class="txt">About Us</span></b-nav-item>
       </b-navbar-nav>
         <b-navbar-nav v-if="!$store.state.isUsserloggedIn" class="ml-auto">
         <b-nav-item @click="navigateTo({name : 'register'})"><span class="txt">Registrar</span></b-nav-item>

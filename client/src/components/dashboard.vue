@@ -26,8 +26,16 @@
                     </b-row>
                 </b-card>
             </div>
-        </b-card>
-    </b-card-group>
+            <div class="card-body cardBody border-warning text-left">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">txid: <b> {{transaction.txid}}</b></li>
+                    <li class="list-group-item">comentario: <b>{{transaction.comment}}</b></li>
+                    <li class="list-group-item">de/a: <b>{{transaction.to}}</b></li>
+                    <li class="list-group-item">monto: <b>{{transaction.balance.assets[0].qty}}</b></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </b-container>
 </template>
 <script>
@@ -68,7 +76,6 @@ export default {
     background-color: #5c636e;
 }
 .container{
-    padding-top: 6em;
     text-align: center;
 }
 .border{
@@ -99,5 +106,11 @@ export default {
 h4{
   font-family: 'Ubuntu';
   color: #5c636e;
+}
+.cardBody{
+  color:#f96d00;
+}
+.tab{
+    width: 100;
 }
 </style>

@@ -30,5 +30,6 @@ p {
 .bg-info {
   margin-top: 5.75em;
   background-color: #393e46 !important;
+  width: auto;
 }
 </style>

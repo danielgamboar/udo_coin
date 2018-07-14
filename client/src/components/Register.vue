@@ -67,9 +67,6 @@ export default {
 .mid-input{
   border-top: 0 !important;
 }
-.container {
-  padding-top: 6em;
-}
 a {
   color: #f96d00;
 }

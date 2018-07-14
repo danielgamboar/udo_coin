@@ -1,8 +1,10 @@
 <template>
- <div class="">
-   <navigation></navigation>
-   <router-view/>
-   <foot></foot>
+ <div class="mainstreat">
+   <div class="contenido">
+    <navigation></navigation>
+    <router-view/>
+    <foot></foot>
+   </div>
  </div>
 </template>
 <script>
@@ -31,5 +33,7 @@ body{
   @font-face{
     font-family:  'Pacifico';
     src: url('/home/danielgamboar/Documentos/Tesis/udo_coin/client/src/assets/fonts/Pacifico/Pacifico-Regular.ttf');
+  }
+  .mainstreat{
   }
 </style>
