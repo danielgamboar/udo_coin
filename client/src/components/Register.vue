@@ -9,8 +9,8 @@
         <input type="txt" class="mid-input" v-model="lastname" placeholder="apellido">
         <input type="txt" class="mid-input" v-model="cedula" placeholder="cedula">
         <input v-model="email" class="mid-input" type="txt"  placeholder="email">
-        <input type="password" v-model="password" class="txt" placeholder="password">
-        <button class="btn btn-info btn-block login txt" @click="registro" type="submit">Register</button>
+        <input type="password" v-model="password" class="txt" placeholder="contraseña">
+        <button class="btn btn-info btn-block login txt" @click="registro" type="submit">Registrar</button>
       <br>
         <div class="danger-alert" v-html="message" />
         <br>

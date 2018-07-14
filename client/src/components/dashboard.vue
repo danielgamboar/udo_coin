@@ -1,27 +1,27 @@
 <template>
 <b-container>
     <b-card-group deck>
-        <b-card header="<b>Transaction List.</b>"
+        <b-card header="<b>Lista de Transacciones.</b>"
                 class="txtWhite border"
                 header-bg-variant="primary">
                 <!-- aqui se puede agregar el for para las transacciones -->
             <div v-for="(transaction,index) in transactions" :key="index" v-if="transaction.balance.assets.length > 0">
                 <b-card class="txtBlack border">
-                    <p class="grayBackground  txtWhite size">Transaccion {{index}}</p>
+                    <p class="grayBackground  txtWhite size">Transacción {{index}}</p>
                     <b-row>
                         <b-col class=" ">
-                            txid: {{transaction.txid}}
+                            ID de Transacción: {{transaction.txid}}
                         </b-col>
                         <b-col class=" ">
-                            concept: {{transaction.comment}}
+                            Concepto: {{transaction.comment}}
                         </b-col>
                     </b-row>
                     <b-row>
                         <b-col class="">
-                            amount: {{transaction.balance.assets[0].qty}}
+                            Monto: {{transaction.balance.assets[0].qty}} UDOCoin
                         </b-col>
                         <b-col class="">
-                            from/to who: {{transaction.to}}
+                            De: {{transaction.to}}
                         </b-col>
                     </b-row>
                 </b-card>
@@ -61,9 +61,8 @@ export default {
 <style scoped>
 .size{
     width: 50%;
-    margin-left: 25%;
     margin-right: 25%;
-    width: 100%;
+    margin-left: 25%;
 }
 .grayBackground{
     background-color: #5c636e;

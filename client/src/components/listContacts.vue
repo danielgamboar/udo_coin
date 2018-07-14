@@ -19,9 +19,9 @@
                         </b-button-group>
                     </b-list-group-item>
                 </b-list-group>
-                <p class="card-text mt-1 txt">
+                <!-- <p class="card-text mt-1 txt">
                     Algun mensaje que queramos colocar. Lo podemos borrar.
-                </p>
+                </p> -->
             </b-card>
 </b-container>
 </template>

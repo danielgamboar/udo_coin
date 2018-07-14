@@ -6,7 +6,7 @@
     <div class="avatar"></div>
     <div class="form-box">
         <input v-model="cedula" type="text" class="txt" placeholder="cedula">
-        <input v-model="password" class="txt" type="password" placeholder="password">
+        <input v-model="password" class="txt" type="password" placeholder="contraseña">
         <button  @click='login' class="btn btn-info btn-block login txt" type="submit">Login</button> <br>
         <div class="danger-alert" v-html="error" />
     </div>
