@@ -49,6 +49,9 @@ export default {
 }
 </script>
 <style scoped>
+b{
+    color:#f96d00;
+}
 .size{
     width: 50%;
     margin-left: 25%;
