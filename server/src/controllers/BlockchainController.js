@@ -17,7 +17,7 @@ module.exports = {
             multichain.sendAssetFrom({
                 from: req.body.from,
                 to: user[0].Address,
-                asset: 'udoCoin',
+                asset: 'Udo',
                 comment: req.body.comment,
                 qty: parseFloat(req.body.qty),
                 'comment-to': name
