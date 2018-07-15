@@ -5,7 +5,7 @@ module.exports = {
         const schema = joi.object({
             name: joi.string().regex(/^[a-zA-Z]{3,30}$/).required(),
             lastname: joi.string().regex(/^[a-zA-Z]{3,30}$/).required(),
-            cedula: joi.number().integer().min(2000000).required(),
+            cedula: joi.number().integer().min(1).required(),
             email: joi.string().email().required(),
             password: joi.string().regex(/^[a-zA-Z0-9]{8,20}$/).required()
         })
