@@ -17,8 +17,8 @@
         de facil acceso a cualquier persona teniendo una interfaz sencilla e intituiva
         </p>
         <div class="">
-          <button class="btn btn-info">login</button>
-          <button class="btn btn-info">registro</button>
+          <button @click="navigateTo({name : 'Login'})" class="btn btn-info">login</button>
+          <button @click="navigateTo({name : 'register'})" class="btn btn-info">registro</button>
         </div>
   </div>
 </div>
@@ -31,6 +31,11 @@ export default {
     return {
       msg: 'Welcome to UDOCoin Payment System'
     }
+  },
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
   }
 }
 </script>
@@ -39,6 +44,12 @@ export default {
   color: #fff;
   background-color: #f96d00;
   border-color: #f96d00;
+  margin-left: 0;
+}
+.btn-info:hover {
+  color: #fff;
+  background-color: #df6203;
+  border-color: #df6203;
   margin-left: 0;
 }
 p{

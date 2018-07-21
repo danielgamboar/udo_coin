@@ -15,7 +15,7 @@
                                 <b-input v-model="comment" id="concepto" placeholder="Concepto" />
                                 <label class="" for="monto"></label>
                                 <b-input id="monto" v-model="qty" class="txt" placeholder="00.00" />
-                                <b-button class="marginleft" @click="sendTransaction" variant="success">Send</b-button>
+                                <b-button class="marginleft" @click="sendTransaction" variant="info">Send</b-button>
                         </b-list-group-item>
                     </b-list-group>
                 </b-list-group>
@@ -32,6 +32,13 @@ export default {
       comment: null,
       cedula: this.$route.params.cedula,
       message: null
+    }
+  },
+  mounted: function () {
+    if (!this.$store.state.isUsserloggedIn) {
+      this.$router.push({
+        name: 'Index'
+      })
     }
   },
   methods: {
@@ -78,6 +85,12 @@ b{
     background-color: #28a745;
     border-color: #28a745;
     margin-left: 0;
+}
+.btn-info:hover {
+  color: #fff;
+  background-color: #df6203;
+  border-color: #df6203;
+  margin-left: 0;
 }
 .txt{
     font-family: 'Ubuntu';

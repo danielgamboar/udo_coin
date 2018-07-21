@@ -7,10 +7,10 @@
                     border-variant="dark" v-for="contact in listcontacts" :key="contact._id">
                     <b-list-group-item>
                         <p class="txt">
-                            cedula: {{contact.cedulaContact}} alias: {{contact.alias}}
+                            Cédula: {{contact.cedulaContact}} Alias: {{contact.alias}}
                         </p>
                         <b-button-group size="sm">
-                            <b-button v-bind:to="{name: 'sendMoney', params: { cedula: contact.cedulaContact }}"  variant="primary" class="text">
+                            <b-button v-bind:to="{name: 'sendMoney', params: { cedula: contact.cedulaContact }}"  variant="info" class="text">
                                 Seleccionar
                             </b-button>
                             <b-button @click="deleteContact(contact._id)" variant="danger" class="text">
@@ -34,8 +34,14 @@ export default {
       listcontacts: null
     }
   },
-  mounted: function () {
-    this.listContacts()
+  mounted () {
+    if (!this.$store.state.isUsserloggedIn) {
+      this.$router.push({
+        name: 'Index'
+      })
+    } else {
+      this.listContacts()
+    }
   },
   methods: {
     async listContacts () {
@@ -79,6 +85,18 @@ b{
     background-color: #28a745;
     border-color: #28a745;
     margin-left: 0;
+}
+.btn-info {
+  color: #fff;
+  background-color: #f96d00;
+  border-color: #f96d00;
+  margin-left: 0;
+}
+.btn-info:hover {
+  color: #fff;
+  background-color: #df6203;
+  border-color: #f96d00;
+  margin-left: 0;
 }
 .txt{
     font-family: 'Ubuntu';

@@ -6,21 +6,21 @@
     <b-collapse is-nav id="nav_collapse">
       <!-- Si el usuario esta logueado -->
       <b-navbar-nav v-if="!$store.state.isUsserloggedIn">
-        <b-nav-item @click="navigateTo({name : 'Index'})" ><span class="txt">Home</span></b-nav-item>
-        <b-nav-item @click="navigateTo({name : 'aboutUs'})"><span class="txt">About Us</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'Index'})" v-b-toggle.nav_collapse><span class="txt">Home</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'aboutUs'})" v-b-toggle.nav_collapse><span class="txt">About Us</span></b-nav-item>
       </b-navbar-nav>
         <b-navbar-nav v-if="!$store.state.isUsserloggedIn" class="ml-auto">
-        <b-nav-item @click="navigateTo({name : 'register'})"><span class="txt">Registrar</span></b-nav-item>
-        <b-nav-item @click="navigateTo({name : 'Login'})"><span class="txt">Login</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'register'})" v-b-toggle.nav_collapse><span class="txt">Registrar</span></b-nav-item>
+        <b-nav-item @click="navigateTo({name : 'Login'})" v-b-toggle.nav_collapse><span class="txt">Login</span></b-nav-item>
       </b-navbar-nav>
         <!--si el usuario esta logueado-->
         <b-navbar-nav v-if="$store.state.isUsserloggedIn">
-          <b-nav-item @click="navigateTo({name : 'Index'})" ><span class="txt">Home</span></b-nav-item>
-          <b-nav-item @click="navigateTo({name : '#'})"><span class="txt">About Us</span></b-nav-item>
-          <b-nav-item @click="navigateTo({name : 'sendMoney'})"><span class="txt">Enviar Dinero</span></b-nav-item>
-          <b-nav-item @click="navigateTo({name : 'dashboard'})"><span class="txt">Tus Transacciones</span></b-nav-item>
-          <b-nav-item @click="navigateTo({name : 'listContacts'})"><span class="txt">Contactos</span></b-nav-item>
-          <b-nav-item @click="navigateTo({name : 'addContact'})"><span class="txt">Agregar Contacto</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'Index'})" v-b-toggle.nav_collapse ><span class="txt">Home</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'aboutUs'})" v-b-toggle.nav_collapse><span class="txt">About Us</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'sendMoney'})" v-b-toggle.nav_collapse><span class="txt">Enviar Dinero</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'dashboard'})" v-b-toggle.nav_collapse><span class="txt">Tus Transacciones</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'listContacts'})" v-b-toggle.nav_collapse><span class="txt">Contactos</span></b-nav-item>
+          <b-nav-item @click="navigateTo({name : 'addContact'})" v-b-toggle.nav_collapse><span class="txt">Agregar Contacto</span></b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav v-if="$store.state.isUsserloggedIn" class="ml-auto">
           <b-nav-form>
@@ -30,8 +30,7 @@
             <template slot="button-content">
               <em  class="txt" >{{$store.state.user.name}} {{$store.state.user.lastname}}</em>
             </template>
-            <b-dropdown-item href="#">Perfil</b-dropdown-item>
-            <b-dropdown-item @click="logout">logout</b-dropdown-item>
+            <b-dropdown-item @click="logout" v-b-toggle.nav_collapse>logout</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -44,7 +43,8 @@ export default {
   name: 'navigation',
   data () {
     return {
-      transfer: null
+      transfer: null,
+      showCollapse: true
     }
   },
   mounted () {

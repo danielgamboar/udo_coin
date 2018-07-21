@@ -11,8 +11,7 @@
         <div class="danger-alert" v-html="error" />
     </div>
   </div>
-  <h2 class="txt">No tienes una cuenta? <a class="" href="#">Unete, que esperas!</a></h2>
-  <h2 class="txt">Olvidaste tu contrasena? <a class="" href="#">Aqui te ayudamos!</a></h2>
+  <h2 class="txt">No tienes una cuenta? <p class="" @click="navigateTo({name : 'register'})">Unete, que esperas!</p></h2>
 </div>
 </template>
 <script>
@@ -34,8 +33,7 @@ export default {
       })
   },
   methods: {
-    async login () {
-      this.error= "i was pushed"
+    async login () {      
       try {
         const response = await AuthServices.login({
           cedula: this.cedula,
@@ -50,9 +48,11 @@ export default {
         this.error = err.response.data.error
 
       }
+    },
+    navigateTo (route) {
+      this.$router.push(route)
     }
   }
-
 }
 </script>
 
@@ -63,7 +63,7 @@ export default {
 .shadow-orange{
   text-shadow: 1px 1px 2px #f96d00;
 }
-a{
+p{
   color: #f96d00;
 }
 h1{

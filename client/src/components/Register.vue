@@ -32,6 +32,13 @@ export default {
       message: null
     }
   },
+  mounted () {
+    if (this.$store.state.isUsserloggedIn) {
+      this.$router.push({
+        name: 'Index'
+      })
+    }
+  },
   methods: {
     async registro () {
       try {
@@ -152,7 +159,7 @@ body {
   border-radius: 100%;
   border: 2px solid #5c636e;
   background-size: 100px 100px;
-  background: url();
+  background-image: url();
 }
 .form-box input {
   width: 100%;

@@ -1,19 +1,19 @@
 <template>
 <b-container class="tab">
     <div class="text-center">
-        <h1>TRANSACCIONES</h1>
+        <h1>Transacciones.</h1>
     </div>
     <div>
         <div class="card border-warning mb-3" v-for="(transaction,index) in transactions" :key="index" v-if="transaction.balance.assets.length > 0">
             <div class="card-header bg-dark text-white fluid">
-               <h5 class="card-title border-warning">Transaccion #{{index+1}}</h5>
+               <h5 class="card-title border-warning tittle">Transacción #{{index+1}}</h5>
             </div>
             <div class="card-body cardBody border-warning text-left">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">txid: <b> {{transaction.txid}}</b></li>
-                    <li class="list-group-item">comentario: <b>{{transaction.comment}}</b></li>
-                    <li class="list-group-item">de/a: <b>{{transaction.to}}</b></li>
-                    <li class="list-group-item">monto: <b>{{transaction.balance.assets[0].qty}}</b></li>
+                    <li class="list-group-item">ID Transacción: <b> {{transaction.txid}}</b></li>
+                    <li class="list-group-item">Comentario: <b>{{transaction.comment}}</b></li>
+                    <li class="list-group-item">De/A: <b>{{transaction.to}}</b></li>
+                    <li class="list-group-item">Monto: <b>{{transaction.balance.assets[0].qty}}</b></li>
                 </ul>
             </div>
         </div>
@@ -30,7 +30,13 @@ export default {
     }
   },
   mounted () {
-    this.listTransactions()
+    if (!this.$store.state.isUsserloggedIn) {
+      this.$router.push({
+        name: 'Index'
+      })
+    } else {
+      this.listTransactions()
+    }
   },
   methods: {
     async listTransactions () {
@@ -50,7 +56,7 @@ export default {
 </script>
 <style scoped>
 b{
-    color:#f96d00;
+    color:#393e46;
 }
 .size{
     width: 50%;
@@ -81,6 +87,12 @@ b{
 .bg-primary {
     background-color: #393e46 !important;
 }
+.border-warning{
+    border-color: #393e46 !important;
+}
+.bg-dark {
+    background-color: #5c636e !important;
+}
 .card{
     position: relative;
     margin: 2.5em auto;
@@ -94,9 +106,13 @@ h4{
   color: #5c636e;
 }
 .cardBody{
-  color:#f96d00;
+  color:#393e46;
 }
 .tab{
     width: 100;
+}
+.titlle{
+    font-family: 'Ubuntu' !important;
+    color: #fff !important;
 }
 </style>

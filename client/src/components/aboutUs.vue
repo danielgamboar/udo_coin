@@ -17,7 +17,7 @@
         </p>
         <!-- UDOCOIN-->
         <img class="logo" src="../assets/images/udocoinlogo.png">
-        <H1>Criptomoneda UDOCOIN</H1>
+        <H1>Criptomoneda UDOCoin</H1>
         <p class="text-justify">El UDOCOIN es una propuesta a todos los sistemas tradicionales
             y centralizados de pago actuales en Venezuela, presentándose como
             una solución al problema que los mismos presentan con la economía
@@ -30,29 +30,29 @@
 </div>
 <div class="row">
     <div class="container text-center">
-        <h1>DESARROLLADORES</h1>
+        <h1>Desarrolladores</h1>
     </div>
     <div class="col-md-6">
         <div class="card">
             <div class="cardbody text-center">
-                <h3>DANIEL GAMBOA</h3>
+                <h3>Daniel Gamboa</h3>
                 <img class="profilepicture" src="../assets/images/daniel-picture.jpeg" alt="">
-                <p>cuasi-ing en Computacion <br>
+                <p>Cuasi-ing en Computacion <br>
                 <p>Universidad de Oriente <br>
-                <p>23 años de edad</p>
-                <button class="btn btn-success" @click="goTo('https://github.com/danielgamboar')" >Github Profile</button>
+                <p>24 años de edad</p>
+                <button class="btn btn-info" @click="goTo('https://github.com/danielgamboar')" >Github Profile</button>
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="card">
             <div class="cardbody text-center">
-                <h3>RAUL CORDOBA</h3>
+                <h3>Raul Cordoba</h3>
                 <img class="profilepicture" src="../assets/images/raul-picture.jpeg" alt="">
-                <p>cuasi-ing en Computacion <br>
+                <p>Cuasi-ing en Computacion <br>
                 <p>Universidad de Oriente <br>
                 <p>23 años de edad</p>
-                <button class="btn btn-success" @click="goTo('https://github.com/reppito')" >Github Profile</button>
+                <button class="btn btn-info" @click="goTo('https://github.com/reppito')" >Github Profile</button>
             </div>
         </div>
     </div>
@@ -80,6 +80,12 @@ export default {
   color: #fff;
   background-color: #f96d00;
   border-color: #f96d00;
+  margin-left: 0;
+}
+.btn-info:hover {
+  color: #fff;
+  background-color: #df6203;
+  border-color: #df6203;
   margin-left: 0;
 }
 p{
